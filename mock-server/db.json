@@ -1,0 +1,308 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": "TL-027",
+      "name": "Bút Bi Thiên Long TL-027",
+      "brand": "Thiên Long",
+      "category": "Bút bi",
+      "price": 4500,
+      "originalPrice": 5000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Xanh", "code": "#0000FF", "image": "link_anh_but_xanh.jpg" },
+        { "name": "Đỏ", "code": "#FF0000", "image": "link_anh_but_do.jpg" },
+        { "name": "Đen", "code": "#000000", "image": "link_anh_but_den.jpg" }
+      ],
+      "stock": 500,
+      "rating": 4.8,
+      "reviews": 120,
+      "description": "Đầu bi 0.5mm, viết trơn, êm, mực ra đều và liên tục.",
+      "images": [
+        "https://placehold.co/600x600/007bff/ffffff?text=TL-027+Xanh+(Main)",
+        "https://placehold.co/600x600/ff0000/ffffff?text=TL-027+Do",
+        "https://placehold.co/600x600/000000/ffffff?text=TL-027+Den",
+        "https://placehold.co/600x600/800080/ffffff?text=TL-027+Tim"
+      ]
+    },
+    {
+      "id": 2,
+      "sku": "GEL-08",
+      "name": "Bút Gel Thiên Long Sunbeam GEL-08",
+      "brand": "Thiên Long",
+      "category": "Bút gel",
+      "price": 6500,
+      "originalPrice": 7500,
+      "currency": "VND",
+      "colors": [
+        { "name": "Xanh", "code": "#0000FF", "image": "https://placehold.co/600x600/0000FF/ffffff?text=Gel-08+Xanh" },
+        { "name": "Đỏ", "code": "#FF0000", "image": "https://placehold.co/600x600/FF0000/ffffff?text=Gel-08+Do" },
+        { "name": "Đen", "code": "#000000", "image": "https://placehold.co/600x600/000000/ffffff?text=Gel-08+Den" }
+      ],
+      "stock": 300,
+      "rating": 4.9,
+      "reviews": 85,
+      "description": "Bút gel mực nước, nét viết trơn êm, màu mực tươi sáng.",
+      "images": [
+        "https://placehold.co/600x600/007bff/ffffff?text=GEL-08+Main",
+        "https://placehold.co/600x600/0000FF/ffffff?text=GEL-08+Blue",
+        "https://placehold.co/600x600/FF0000/ffffff?text=GEL-08+Red",
+        "https://placehold.co/600x600/000000/ffffff?text=GEL-08+Black"
+      ]
+    },
+    {
+      "id": 3,
+      "sku": "FO-HL03",
+      "name": "Bút dạ quang FlexOffice FO-HL03",
+      "brand": "FlexOffice",
+      "category": "Bút dạ quang",
+      "price": 8000,
+      "originalPrice": 9000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Vàng", "code": "#FFFF00", "image": "https://placehold.co/600x600/FFFF00/000000?text=HL03+Vang" },
+        { "name": "Cam", "code": "#FFA500", "image": "https://placehold.co/600x600/FFA500/ffffff?text=HL03+Cam" },
+        { "name": "Hồng", "code": "#FF69B4", "image": "https://placehold.co/600x600/FF69B4/ffffff?text=HL03+Hong" },
+        { "name": "Xanh Lá", "code": "#32CD32", "image": "https://placehold.co/600x600/32CD32/ffffff?text=HL03+Green" }
+      ],
+      "stock": 150,
+      "rating": 4.7,
+      "reviews": 40,
+      "description": "Màu mực phản quang mạnh, không làm lem chữ khi đánh dấu.",
+      "images": [
+        "https://placehold.co/600x600/FFFF00/000000?text=HL03+Main",
+        "https://placehold.co/600x600/FFA500/ffffff?text=HL03+Orange",
+        "https://placehold.co/600x600/FF69B4/ffffff?text=HL03+Pink",
+        "https://placehold.co/600x600/32CD32/ffffff?text=HL03+Green"
+      ]
+    },
+    {
+      "id": 4,
+      "sku": "WB-03",
+      "name": "Bút lông bảng Thiên Long WB-03",
+      "brand": "Thiên Long",
+      "category": "Bút lông bảng",
+      "price": 9000,
+      "originalPrice": 10000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Xanh", "code": "#0000FF", "image": "https://placehold.co/600x600/0000FF/ffffff?text=WB-03+Xanh" },
+        { "name": "Đỏ", "code": "#FF0000", "image": "https://placehold.co/600x600/FF0000/ffffff?text=WB-03+Do" },
+        { "name": "Đen", "code": "#000000", "image": "https://placehold.co/600x600/000000/ffffff?text=WB-03+Den" }
+      ],
+      "stock": 200,
+      "rating": 4.6,
+      "reviews": 60,
+      "description": "Viết tốt trên bảng trắng, dễ dàng lau sạch, mùi nhẹ.",
+      "images": [
+        "https://placehold.co/600x600/ffffff/000000?text=WB-03+Main",
+        "https://placehold.co/600x600/0000FF/ffffff?text=WB-03+Blue",
+        "https://placehold.co/600x600/FF0000/ffffff?text=WB-03+Red",
+        "https://placehold.co/600x600/000000/ffffff?text=WB-03+Black"
+      ]
+    },
+    {
+      "id": 5,
+      "sku": "GP-04",
+      "name": "Bút chì gỗ Thiên Long GP-04 (2B)",
+      "brand": "Thiên Long",
+      "category": "Bút chì",
+      "price": 3500,
+      "originalPrice": 4000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Vàng", "code": "#FFD700", "image": "https://placehold.co/600x600/FFD700/000000?text=GP-04+Vang" },
+        { "name": "Đen", "code": "#1C1C1C", "image": "https://placehold.co/600x600/1C1C1C/ffffff?text=GP-04+Den" }
+      ],
+      "stock": 500,
+      "rating": 4.8,
+      "reviews": 150,
+      "description": "Ngòi chì 2B đậm, mềm, dễ gọt, gỗ bền không bị nứt.",
+      "images": [
+        "https://placehold.co/600x600/FFD700/000000?text=GP-04+Main",
+        "https://placehold.co/600x600/FFD700/000000?text=GP-04+Yellow+Body",
+        "https://placehold.co/600x600/1C1C1C/ffffff?text=GP-04+Black+Body"
+      ]
+    },
+    {
+      "id": 6,
+      "sku": "FT-02",
+      "name": "Bút máy Điểm 10 FT-02 (Doremon)",
+      "brand": "Điểm 10",
+      "category": "Bút máy",
+      "price": 45000,
+      "originalPrice": 52000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Xanh Dương", "code": "#1E90FF", "image": "https://placehold.co/600x600/1E90FF/ffffff?text=FT-02+Xanh" },
+        { "name": "Hồng", "code": "#FFB6C1", "image": "https://placehold.co/600x600/FFB6C1/ffffff?text=FT-02+Hong" }
+      ],
+      "stock": 80,
+      "rating": 4.5,
+      "reviews": 25,
+      "description": "Ngòi mài nông, viết nét thanh nét đậm, hình ảnh Doremon dễ thương.",
+      "images": [
+        "https://placehold.co/600x600/1E90FF/ffffff?text=FT-02+Main",
+        "https://placehold.co/600x600/1E90FF/ffffff?text=FT-02+Blue",
+        "https://placehold.co/600x600/FFB6C1/ffffff?text=FT-02+Pink"
+      ]
+    },
+    {
+      "id": 7,
+      "sku": "PCR-04",
+      "name": "Sáp màu Colokit PCR-04 (12 màu)",
+      "brand": "Colokit",
+      "category": "Mỹ thuật",
+      "price": 28000,
+      "originalPrice": 32000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Hộp 12 màu", "code": "#FF4500", "image": "https://placehold.co/600x600/FF4500/ffffff?text=Hop+12+Mau" }
+      ],
+      "stock": 120,
+      "rating": 4.9,
+      "reviews": 90,
+      "description": "Màu sắc rực rỡ, an toàn, thân thiện với môi trường, không dính tay.",
+      "images": [
+        "https://placehold.co/600x600/FF4500/ffffff?text=Colokit+12+Main",
+        "https://placehold.co/600x600/FF0000/ffffff?text=Mau+Do",
+        "https://placehold.co/600x600/FFFF00/000000?text=Mau+Vang",
+        "https://placehold.co/600x600/0000FF/ffffff?text=Mau+Xanh"
+      ]
+    },
+    {
+      "id": 8,
+      "sku": "E-09",
+      "name": "Gôm tẩy Thiên Long E-09",
+      "brand": "Thiên Long",
+      "category": "Dụng cụ học tập",
+      "price": 3000,
+      "originalPrice": 3000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Trắng", "code": "#FFFFFF", "image": "https://placehold.co/600x600/FFFFFF/000000?text=E-09+Trang" },
+        { "name": "Đen", "code": "#000000", "image": "https://placehold.co/600x600/000000/ffffff?text=E-09+Den" }
+      ],
+      "stock": 400,
+      "rating": 4.7,
+      "reviews": 55,
+      "description": "Gôm dẻo, tẩy sạch chì, không làm rách giấy, ít bụi.",
+      "images": [
+        "https://placehold.co/600x600/FFFFFF/000000?text=E-09+Main",
+        "https://placehold.co/600x600/FFFFFF/000000?text=E-09+White",
+        "https://placehold.co/600x600/000000/ffffff?text=E-09+Black"
+      ]
+    },
+    {
+      "id": 9,
+      "sku": "FO-DB01",
+      "name": "Bìa nút FlexOffice FO-DB01 (A4)",
+      "brand": "FlexOffice",
+      "category": "File bìa hồ sơ",
+      "price": 4000,
+      "originalPrice": 5000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Trắng Trong", "code": "#F0F8FF", "image": "https://placehold.co/600x600/F0F8FF/000000?text=DB01+Clear" },
+        { "name": "Xanh Dương", "code": "#0000FF", "image": "https://placehold.co/600x600/0000FF/ffffff?text=DB01+Blue" },
+        { "name": "Hồng", "code": "#FF69B4", "image": "https://placehold.co/600x600/FF69B4/ffffff?text=DB01+Pink" }
+      ],
+      "stock": 600,
+      "rating": 4.6,
+      "reviews": 110,
+      "description": "Nhựa PP bền đẹp, nút bấm chắc chắn, lưu trữ tài liệu A4 tiện lợi.",
+      "images": [
+        "https://placehold.co/600x600/F0F8FF/000000?text=DB01+Main",
+        "https://placehold.co/600x600/0000FF/ffffff?text=DB01+Blue",
+        "https://placehold.co/600x600/FF69B4/ffffff?text=DB01+Pink",
+        "https://placehold.co/600x600/F0F8FF/000000?text=DB01+Clear"
+      ]
+    },
+    {
+      "id": 10,
+      "sku": "PM-09",
+      "name": "Bút lông dầu Thiên Long PM-09",
+      "brand": "Thiên Long",
+      "category": "Bút lông dầu",
+      "price": 8500,
+      "originalPrice": 9500,
+      "currency": "VND",
+      "colors": [
+        { "name": "Xanh", "code": "#00008B", "image": "https://placehold.co/600x600/00008B/ffffff?text=PM-09+Xanh" },
+        { "name": "Đỏ", "code": "#DC143C", "image": "https://placehold.co/600x600/DC143C/ffffff?text=PM-09+Do" },
+        { "name": "Đen", "code": "#000000", "image": "https://placehold.co/600x600/000000/ffffff?text=PM-09+Den" }
+      ],
+      "stock": 250,
+      "rating": 4.8,
+      "reviews": 75,
+      "description": "Mực đậm, bám dính tốt trên nhiều bề mặt (gỗ, nhựa, thủy tinh), không độc hại.",
+      "images": [
+        "https://placehold.co/600x600/00008B/ffffff?text=PM-09+Main",
+        "https://placehold.co/600x600/00008B/ffffff?text=PM-09+Blue",
+        "https://placehold.co/600x600/DC143C/ffffff?text=PM-09+Red",
+        "https://placehold.co/600x600/000000/ffffff?text=PM-09+Black"
+      ]
+    },
+    {
+      "id": 11,
+      "sku": "CP-02",
+      "name": "Bút xóa Thiên Long CP-02",
+      "brand": "Thiên Long",
+      "category": "Dụng cụ văn phòng",
+      "price": 12000,
+      "originalPrice": 14000,
+      "currency": "VND",
+      "colors": [
+        { "name": "Xanh Dương", "code": "#00BFFF", "image": "https://placehold.co/600x600/00BFFF/ffffff?text=CP-02+Xanh" },
+        { "name": "Xanh Lá", "code": "#32CD32", "image": "https://placehold.co/600x600/32CD32/ffffff?text=CP-02+Green" }
+      ],
+      "stock": 180,
+      "rating": 4.5,
+      "reviews": 105,
+      "description": "Đầu kim loại lò xo, mực xuống đều, mau khô, độ che phủ tốt.",
+      "images": [
+        "https://placehold.co/600x600/00BFFF/ffffff?text=CP-02+Main",
+        "https://placehold.co/600x600/00BFFF/ffffff?text=CP-02+Blue",
+        "https://placehold.co/600x600/32CD32/ffffff?text=CP-02+Green"
+      ]
+    },
+    {
+      "id": 12,
+      "sku": "NB-095",
+      "name": "Vở học sinh Điểm 10 (96 trang)",
+      "brand": "Điểm 10",
+      "category": "Giấy vở",
+      "price": 11000,
+      "originalPrice": 12000,
+      "currency": "VND",
+      "stock": 1000,
+      "rating": 4.7,
+      "reviews": 200,
+      "description": "Giấy trắng tự nhiên, dòng kẻ rõ nét, bìa hình sinh động.",
+      "image": "https://placehold.co/400x400?text=Vo+Diem+10"
+    },
+    {
+      "id": 13,
+      "sku": "T-10",
+      "name": "Keo dán giấy Thiên Long T-10",
+      "brand": "Thiên Long",
+      "category": "Dụng cụ văn phòng",
+      "price": 5000,
+      "originalPrice": 5000,
+      "currency": "VND",
+      "stock": 150,
+      "rating": 4.6,
+      "reviews": 50,
+      "description": "Keo dán lỏng, độ kết dính cao, khô nhanh.",
+      "image": "https://placehold.co/400x400?text=Keo+Dan+Giay"
+    }
+  ],
+  "categories": [
+    { "id": "cat1", "name": "Bút bi" },
+    { "id": "cat2", "name": "Mỹ thuật" },
+    { "id": "cat3", "name": "Bút dạ quang" },
+    { "id": "cat4", "name": "Bút cao cấp" },
+    { "id": "cat5", "name": "Giấy vở" },
+    { "id": "cat6", "name": "Dụng cụ văn phòng" }
+  ]
+}
