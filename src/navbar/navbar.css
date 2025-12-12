@@ -1,0 +1,143 @@
+#navbar {
+    background-color: #900002;
+    padding: .8rem 0;
+
+    .margin {
+        margin: 0 1rem;
+    }
+
+    .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        margin: 0 4rem;
+
+        .logo {
+            display: flex;
+
+            img {
+                position: relative;
+                width: auto;
+                height: 4rem;
+            }
+
+            .icon-xmas2 {
+                position: absolute;
+                top: 9%;
+                left: 2%;
+
+                img {
+                    width: auto;
+                    height: 4rem;
+                }
+            }
+        }
+
+        .search {
+            display: flex;
+            padding: 0 1.5rem;
+
+            .search-input {
+                width: 600px;
+                padding: .7rem 1rem;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                font-size: 1rem;
+                background-color: #fff;
+                color: rgba(0, 0, 0, 0.5);
+            }
+
+            .right-icon {
+                color: #f5e09e;
+                padding: .7rem 1rem;
+                background-color: #650000;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .contact-user {
+            display: flex;
+            position: relative;
+            align-items: center;
+
+            .icon-xmas {
+                position: absolute;
+                top: -60%;
+                left: -5%;
+
+                img {
+                    height: 9rem;
+                }
+            }
+
+            .list-contact-user {
+                list-style: none;
+                display: flex;
+                white-space: nowrap;
+
+                .item-contact-user {
+                    display: flex;
+                    align-items: center;
+                    padding: 5px;
+                    color: #f5e09e;
+
+                    &:hover {
+                        background-color: rgba(0, 96, 255, 0.12);
+                        border-radius: 10px;
+                    }
+
+                    .icon {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 2.3rem;
+                        height: 2.3rem;
+                        border-radius: 50%;
+                        background-color: #650000;
+                        margin-right: 8px;
+                        font-size: 1.3rem;
+                    }
+
+                    .cart {
+                        position: relative;
+                        font-size: 1.3rem;
+                        cursor: pointer;
+                        width: 2rem;
+                        height: 2rem;
+
+                        .count {
+                            position: absolute;
+                            font-size: .7rem;
+                            top: -10%;
+                            right: -5%;
+                            width: 1rem;
+                            height: 1rem;
+                            border-radius: 50%;
+                            background-color: red;
+                        }
+                    }
+
+                    .name {
+                        cursor: pointer;
+
+                        .first {
+                            font-weight: 700;
+                            font-size: 1.1rem;
+                        }
+
+                        .second {
+                            font-size: .8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
