@@ -1,143 +1,201 @@
 #navbar {
-    background-color: #900002;
-    padding: .8rem 0;
-
-    .margin {
-        margin: 0 1rem;
-    }
-
-    .flex-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        margin: 0 4rem;
-
-        .logo {
-            display: flex;
-
-            img {
-                position: relative;
-                width: auto;
-                height: 4rem;
-            }
-
-            .icon-xmas2 {
-                position: absolute;
-                top: 9%;
-                left: 2%;
-
-                img {
-                    width: auto;
-                    height: 4rem;
-                }
-            }
-        }
-
-        .search {
-            display: flex;
-            padding: 0 1.5rem;
-
-            .search-input {
-                width: 600px;
-                padding: .7rem 1rem;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-                font-size: 1rem;
-                background-color: #fff;
-                color: rgba(0, 0, 0, 0.5);
-            }
-
-            .right-icon {
-                color: #f5e09e;
-                padding: .7rem 1rem;
-                background-color: #650000;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                cursor: pointer;
-            }
-        }
-
-        .contact-user {
-            display: flex;
-            position: relative;
-            align-items: center;
-
-            .icon-xmas {
-                position: absolute;
-                top: -60%;
-                left: -5%;
-
-                img {
-                    height: 9rem;
-                }
-            }
-
-            .list-contact-user {
-                list-style: none;
-                display: flex;
-                white-space: nowrap;
-
-                .item-contact-user {
-                    display: flex;
-                    align-items: center;
-                    padding: 5px;
-                    color: #f5e09e;
-
-                    &:hover {
-                        background-color: rgba(0, 96, 255, 0.12);
-                        border-radius: 10px;
-                    }
-
-                    .icon {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 2.3rem;
-                        height: 2.3rem;
-                        border-radius: 50%;
-                        background-color: #650000;
-                        margin-right: 8px;
-                        font-size: 1.3rem;
-                    }
-
-                    .cart {
-                        position: relative;
-                        font-size: 1.3rem;
-                        cursor: pointer;
-                        width: 2rem;
-                        height: 2rem;
-
-                        .count {
-                            position: absolute;
-                            font-size: .7rem;
-                            top: -10%;
-                            right: -5%;
-                            width: 1rem;
-                            height: 1rem;
-                            border-radius: 50%;
-                            background-color: red;
-                        }
-                    }
-
-                    .name {
-                        cursor: pointer;
-
-                        .first {
-                            font-weight: 700;
-                            font-size: 1.1rem;
-                        }
-
-                        .second {
-                            font-size: .8rem;
-                        }
-                    }
-                }
-            }
-        }
-    }
+  background-color: #900002;
 }
+#navbar .margin {
+  margin: 0 1rem;
+}
+#navbar .flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navbar .header {
+  display: flex;
+  align-items: center;
+  margin: 0 4rem;
+  padding: 0.9rem 0;
+}
+#navbar .header .logo {
+  display: flex;
+}
+#navbar .header .logo img {
+  position: relative;
+  width: auto;
+  height: 3.5rem;
+}
+#navbar .header .logo .icon-xmas2 {
+  position: absolute;
+  top: 4%;
+  left: 1.5%;
+}
+#navbar .header .logo .icon-xmas2 img {
+  width: auto;
+  height: 4rem;
+}
+#navbar .header .search {
+  display: flex;
+  padding: 0 1.5rem;
+}
+#navbar .header .search .search-input {
+  width: 600px;
+  padding: 0.6rem 1rem;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+#navbar .header .search .right-icon {
+  color: #f5e09e;
+  padding: 0.6rem 0.8rem;
+  background-color: #650000;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+}
+#navbar .header .contact-user {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+#navbar .header .contact-user .icon-xmas {
+  position: absolute;
+  top: -80%;
+  left: -5%;
+}
+#navbar .header .contact-user .icon-xmas img {
+  height: 10rem;
+}
+#navbar .header .contact-user .list-contact-user {
+  list-style: none;
+  display: flex;
+  white-space: nowrap;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: #f5e09e;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user:hover {
+  background-color: rgba(0, 96, 255, 0.12);
+  border-radius: 12px;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background-color: #650000;
+  margin-right: 8px;
+  font-size: 1.3rem;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .name {
+  display: flex;
+  flex-direction: column;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .name a {
+  color: #f5e09e;
+  cursor: pointer;
+  text-decoration: none;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .name .first {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .name .second {
+  font-size: 0.8rem;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .cart {
+  position: relative;
+  font-size: 1.3rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .cart a {
+  color: #f5e09e;
+}
+#navbar .header .contact-user .list-contact-user .item-contact-user .cart .count {
+  position: absolute;
+  font-size: 0.7rem;
+  top: -10%;
+  right: -5%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: red;
+}
+#navbar .cate {
+  background-color: #fffadf;
+  position: relative;
+  z-index: 1;
+}
+#navbar .cate .list-cate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0 3rem;
+}
+#navbar .cate .list-cate .item-cate {
+  padding: 10px;
+  cursor: pointer;
+}
+#navbar .cate .list-cate .item-cate:hover {
+  background: #fff;
+  color: #2659f3;
+}
+#navbar .cate .list-cate .item-cate:hover .dropdown-content {
+  display: block;
+}
+#navbar .cate .list-cate .item-cate .icon {
+  margin-right: 0.9rem;
+}
+#navbar .cate .list-cate .item-cate .icon img {
+  width: 1rem;
+  height: 1rem;
+}
+#navbar .cate .list-cate .item-cate .name {
+  margin-right: 8px;
+}
+#navbar .cate .list-cate .item-cate .dropdown-content {
+  display: none;
+  /*align-items: flex-start;*/
+  padding: 15px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background: #fff;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #dddddd #dddddd #dddddd #e1e1e1;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+  font-size: 14px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.06) -2px 0 8px 0;
+  transition: all 0.1s ease;
+  max-width: 90vw;
+}
+#navbar .cate .list-cate .item-cate .dropdown-content .content {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+#navbar .cate .list-cate .item-cate .dropdown-content .content .content-left {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+#navbar .cate .list-cate .item-cate .dropdown-content .content .content-right {
+  width: 45%;
+}
+
+/*# sourceMappingURL=navbar.css.map */
