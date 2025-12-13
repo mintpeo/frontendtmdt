@@ -275,18 +275,66 @@
       "rating": 4.6,
       "reviews": 50,
       "description": "Keo dán lỏng, độ kết dính cao, khô nhanh.",
-      "images": [
+      "imagese": [
         "/images/G025.jpg",
         "/images/G025-2.jpg"
       ]
     }
   ],
   "categories": [
-    { "id": "cat1", "name": "Bút bi" },
-    { "id": "cat2", "name": "Mỹ thuật" },
-    { "id": "cat3", "name": "Bút dạ quang" },
-    { "id": "cat4", "name": "Bút cao cấp" },
-    { "id": "cat5", "name": "Giấy vở" },
-    { "id": "cat6", "name": "Dụng cụ văn phòng" }
+    { "id": "cate1", "name": "Bút viết", "image": "/imagesCate/menu_icon_1.png", "items": [
+      "BST bút Hoshi - Công nghệ Nhật Bản",
+      "Bút Bi",
+      "Bút Gel",
+      "Bút Máy xóa được",
+      "Bút lông kim",
+      "Bút xóa"
+    ]},
+    { "id": "cate2", "name": "Văn phòng phẩm", "image":  "/imagesCate/menu_icon_2.png", "items": [
+      "NEW ARRIVAL",
+      "Bút lông bảng - lông dầu",
+      "Pin",
+      "BST Hoshi - Công nghệ Nhật Bản",
+      "Máy tính tay văn phòng",
+      "Kéo văn phòng, dao rọc giấy"
+    ]},
+    { "id": "cate3", "name": "Dụng Cụ Học Tập", "image":  "/imagesCate/menu_icon_3.png", "items": [
+      "NEW ARRIVAL",
+      "Tập, Sổ, Bìa bao & Nhãn vở",
+      "Bút Chì",
+      "Thước - Compa - Phấn",
+      "Bảng học sinh",
+      "Máy tính khoa học"
+    ]},
+    { "id": "cate4", "name": "Mỹ Thuật", "image":  "/imagesCate/menu_icon_4.png", "items": [
+      "NEW ARRIVAL",
+      "Fiber Pen - Bút Lông Màu",
+      "Bút chì màu",
+      "Màu nước",
+      "Tập vẽ tranh - Tập tô màu",
+      "Acrylic Marker - Bút sơn"
+    ]},
+    { "id": "cate5", "name": "Giấy In", "image":  "/imagesCate/menu_icon_5.png", "items": [
+      "Giấy A3",
+      "Giấy A5",
+      "Copy Plus",
+      "Combo 10 ream Tặng 1 ream",
+      "Giấy A4",
+      "IK Copy"
+    ]},
+    { "id": "cate6", "name": "Sách", "image":  "/imagesCate/menu_icon_6.png", "items": []},
+    { "id": "cate7", "name": "Bút cao cấp", "image":  "/imagesCate/menu_icon_7.png", "items": [
+      "Bút bi",
+      "Bút máy",
+      "1 triệu đến 2 triệu",
+      "Bút cao cấp Bizner",
+      "Bút lông bi",
+      "Dưới 1 triệu"
+    ]},
+    { "id": "cate8", "name": "Sports - Lifestyle", "image":  "/imagesCate/menu_icon_8.png", "items": [
+      "Sản phẩm Rạng Đông",
+      "Sport",
+      "Túi Canvas"
+    ]}
   ]
 }
