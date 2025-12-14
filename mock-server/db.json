@@ -282,7 +282,7 @@
     }
   ],
   "categories": [
-    { "id": "cate1", "name": "Bút viết", "image": "/imagesCate/menu_icon_1.png", "items": [
+    { "id": "cate1", "name": "Bút viết", "image": "/imagesCate/menu_icon_1.png", "banner": "/imagesCate/banner1.jpg", "items": [
       "BST bút Hoshi - Công nghệ Nhật Bản",
       "Bút Bi",
       "Bút Gel",
@@ -290,7 +290,7 @@
       "Bút lông kim",
       "Bút xóa"
     ]},
-    { "id": "cate2", "name": "Văn phòng phẩm", "image":  "/imagesCate/menu_icon_2.png", "items": [
+    { "id": "cate2", "name": "Văn phòng phẩm", "image":  "/imagesCate/menu_icon_2.png", "banner": "/imagesCate/banner2.jpg", "items": [
       "NEW ARRIVAL",
       "Bút lông bảng - lông dầu",
       "Pin",
@@ -298,7 +298,7 @@
       "Máy tính tay văn phòng",
       "Kéo văn phòng, dao rọc giấy"
     ]},
-    { "id": "cate3", "name": "Dụng Cụ Học Tập", "image":  "/imagesCate/menu_icon_3.png", "items": [
+    { "id": "cate3", "name": "Dụng Cụ Học Tập", "image":  "/imagesCate/menu_icon_3.png", "banner": "/imagesCate/banner3.jpg", "items": [
       "NEW ARRIVAL",
       "Tập, Sổ, Bìa bao & Nhãn vở",
       "Bút Chì",
@@ -306,7 +306,7 @@
       "Bảng học sinh",
       "Máy tính khoa học"
     ]},
-    { "id": "cate4", "name": "Mỹ Thuật", "image":  "/imagesCate/menu_icon_4.png", "items": [
+    { "id": "cate4", "name": "Mỹ Thuật", "image":  "/imagesCate/menu_icon_4.png", "banner": "/imagesCate/banner4.png", "items": [
       "NEW ARRIVAL",
       "Fiber Pen - Bút Lông Màu",
       "Bút chì màu",
@@ -314,7 +314,7 @@
       "Tập vẽ tranh - Tập tô màu",
       "Acrylic Marker - Bút sơn"
     ]},
-    { "id": "cate5", "name": "Giấy In", "image":  "/imagesCate/menu_icon_5.png", "items": [
+    { "id": "cate5", "name": "Giấy In", "image":  "/imagesCate/menu_icon_5.png", "banner": "/imagesCate/banner5.jpg", "items": [
       "Giấy A3",
       "Giấy A5",
       "Copy Plus",
@@ -322,8 +322,8 @@
       "Giấy A4",
       "IK Copy"
     ]},
-    { "id": "cate6", "name": "Sách", "image":  "/imagesCate/menu_icon_6.png", "items": []},
-    { "id": "cate7", "name": "Bút cao cấp", "image":  "/imagesCate/menu_icon_7.png", "items": [
+    { "id": "cate6", "name": "Sách", "image":  "/imagesCate/menu_icon_6.png", "banner": "", "items": []},
+    { "id": "cate7", "name": "Bút cao cấp", "image":  "/imagesCate/menu_icon_7.png", "banner": "/imagesCate/banner6.png", "items": [
       "Bút bi",
       "Bút máy",
       "1 triệu đến 2 triệu",
@@ -331,7 +331,7 @@
       "Bút lông bi",
       "Dưới 1 triệu"
     ]},
-    { "id": "cate8", "name": "Sports - Lifestyle", "image":  "/imagesCate/menu_icon_8.png", "items": [
+    { "id": "cate8", "name": "Sports - Lifestyle", "image":  "/imagesCate/menu_icon_8.png", "banner": "/imagesCate/banner7.png", "items": [
       "Sản phẩm Rạng Đông",
       "Sport",
       "Túi Canvas"

@@ -9,7 +9,6 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import { BsFillBagFill } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa";
-import banner1 from '../assets/banner1.jpg'
 
 import {API_URL} from "../service/API_URL.jsx";
 import axios from "axios";
@@ -47,6 +46,11 @@ const Navbar = () => {
     // Load cate.items by cate.id
     const getCateById = (cateId) => {
       return cates.find(c => c.id === cateId)?.items ?? null;
+    };
+
+    // Load cate.banner by cate.id
+    const getCateBannerById = (cateId) => {
+        return cates.find(c => c.id === cateId)?.banner ?? null;
     };
 
     return (
@@ -107,6 +111,7 @@ const Navbar = () => {
             {/*  CATEGORY  */}
             <div className="cate">
                 <ul className="list-cate">
+                    {/*  Map data categories  */}
                     {cates && cates.length > 0 ? (
                             cates.map((cate) => (
                                 <li key={cate.id} className="item-cate flex-center">
@@ -120,14 +125,17 @@ const Navbar = () => {
                                                 <div className="content">
                                                     <div className="content-left">
                                                         <ul className="menu-list">
-                                                            <li className="menu-item">
-                                                                <a href="#" title="sdf">{getCateById(cate.id)}</a>
-                                                            </li>
+                                                            {/*  Map item from cate.items  */}
+                                                            {getCateById(cate.id).map((item) => (
+                                                                <li className="menu-item">
+                                                                    <a className="item-name" href="#" title={item}>{item}</a>
+                                                                </li>
+                                                            ))}
                                                         </ul>
                                                     </div>
 
                                                     <div className="content-right">
-                                                        {/*<img src={banner1} alt=""/>*/}
+                                                        <img src={`${API}${getCateBannerById(cate.id)}`} alt=""/>
                                                     </div>
                                                 </div>
                                             </div>
