@@ -9,6 +9,32 @@
     padding: 3rem 5rem 0;
     gap: 1.5rem;
 
+    .title {
+      font-weight: bold;
+      color: #fbe263 !important;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .list-item {
+      list-style: none;
+      .item {
+        letter-spacing: .5px;
+        margin-bottom: 5px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+
+        &:before {
+          content: "-";
+          margin-right: 5px;
+          color: #fff;
+        }
+      }
+    }
+
     .logo-footer {
       width: 420px;
 
@@ -23,6 +49,7 @@
           font-size: 1rem;
           color: #fff;
           margin-bottom: 5px;
+          letter-spacing: 1px;
         }
       }
 
@@ -62,12 +89,85 @@
           color: #fbe263;
           text-transform: uppercase;
           text-decoration: none;
+          font-size: .9rem;
 
           img {
             width: 100px;
           }
         }
       }
+    }
+
+    .address {
+      width: 320px;
+      padding: 0 10px;
+
+      p {
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+        font-size: .9rem;
+        color: #fff;
+
+        b {
+          color: #fbe263;
+        }
+      }
+    }
+
+    .contact {
+      width: 280px;
+      padding: 0 10px;
+
+      .font-contact {
+        font-weight: 600;
+        color: #fbe263;
+      }
+
+      p {
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+
+        a {
+          margin-left: 5px;
+          text-decoration: none;
+          color: #fff !important;
+        }
+      }
+    }
+
+    .about {
+      width: 320px;
+      padding: 0 10px;
+
+      .logo-about {
+        margin-top: 1rem;
+        display: flex;
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          background-color: #fff;
+          margin-right: 8px;
+          font-size: 1.7rem;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    background: #650000;
+    padding: 1rem;
+
+    p {
+      text-align: center;
+      color: #fff;
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: 1px;
     }
   }
 }

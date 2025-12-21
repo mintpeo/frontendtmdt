@@ -33,26 +33,26 @@ const Footer = () => {
                 {/*  ADDRESS  */}
                 <div className="address">
                     <p className="title">ĐỊA CHỈ CÔNG TY</p>
-                    <p className="text">Head Office: Tầng 10, Sofic Tower, Số 10 Đường Mai Chí Thọ, Phường An Khánh, Thành Phố Hồ Chí Minh, Việt Nam</p>
-                    <p className="text">Miền Bắc: Số 38, đường Gamuda Gardens 2-5, Khu đô thị mới C2 - Gamuda Gardens, Phường Trần Phú, Thành phố Hà Nội, Việt Nam.</p>
+                    <p><b>Head Office:</b> Tầng 10, Sofic Tower, Số 10 Đường Mai Chí Thọ, Phường An Khánh, Thành Phố Hồ Chí Minh, Việt Nam</p>
+                    <p><b>Miền Bắc:</b> Số 38, đường Gamuda Gardens 2-5, Khu đô thị mới C2 - Gamuda Gardens, Phường Trần Phú, Thành phố Hà Nội, Việt Nam.</p>
                 </div>
 
                 {/*  CONTACT  */}
                 <div className="contact">
                     <p className="title">HỖ TRỢ KHÁCH HÀNG</p>
-                    <p className="phone">Hotline: <a href="#" title="1900 866 819">1900 866 819</a></p>
-                    <p className="text">Thứ 2 - Thứ 6 (8h - 17h)</p>
-                    <p className="mail">salesonline@thienlongvn.com</p>
+                    <p className="font-contact">Hotline: <a href="#" className="font-contact" title="1900 866 819">1900 866 819</a></p>
+                    <p className="font-contact">Thứ 2 - Thứ 6 (8h - 17h)</p>
+                    <p className="font-contact">salesonline@thienlongvn.com</p>
                     
                     <div className="list-contact">
                         <ul className="list-item">
-                            <li className="item">Hướng dẫn mua hàng</li>
-                            <li className="item">Hướng dẫn thanh toán</li>
-                            <li className="item">Chính sách giao hàng</li>
-                            <li className="item">Chính sách đổi trả & hoàn tiền</li>
-                            <li className="item">Khách hàng thân thiết</li>
-                            <li className="item">Khách hàng ưu tiên</li>
-                            <li className="item">Phản ánh chất lượng sản phẩm</li>
+                            <li className="item"><a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a></li>
+                            <li className="item"><a href="#" title="Hướng dẫn thanh toán">Hướng dẫn thanh toán</a></li>
+                            <li className="item"><a href="#" title="Chính sách giao hàng">Chính sách giao hàng</a></li>
+                            <li className="item"><a href="#" title="Chính sách đổi trả & hoàn tiền">Chính sách đổi trả & hoàn tiền</a></li>
+                            <li className="item"><a href="#" title="Khách hàng thân thiết">Khách hàng thân thiết</a></li>
+                            <li className="item"><a href="#" title="Khách hàng ưu tiên">Khách hàng ưu tiên</a></li>
+                            <li className="item"><a href="#" title="Phản ánh chất lượng sản phẩm">Phản ánh chất lượng sản phẩm</a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,20 +63,24 @@ const Footer = () => {
 
                     <div className="list-about">
                         <ul className="list-item">
-                            <li className="item"> Giới thiệu</li>
-                            <li className="item">Dịch vụ in ấn quảng cáo</li>
-                            <li className="item">Chính sách bảo mật chung</li>
-                            <li className="item">Chính sách bảo mật thông tin cá nhân</li>
-                            <li className="item">Thông tin liên hệ</li>
-                            <li className="item">Chương trình Affiliate</li>
+                            <li className="item"><a href="#" title="Giới thiệu">Giới thiệu</a></li>
+                            <li className="item"><a href="#" title="Dịch vụ in ấn quảng cáo">Dịch vụ in ấn quảng cáo</a></li>
+                            <li className="item"><a href="#" title="Chính sách bảo mật chung">Chính sách bảo mật chung</a></li>
+                            <li className="item"><a href="#" title="Chính sách bảo mật thông tin cá nhân">Chính sách bảo mật thông tin cá nhân</a></li>
+                            <li className="item"><a href="#" title="Thông tin liên hệ">Thông tin liên hệ</a></li>
+                            <li className="item"><a href="#" title="Chương trình Affiliate">Chương trình Affiliate</a></li>
                         </ul>
                     </div>
 
                     <div className="logo-about">
-                        <a href="#" title="Facebook social"><FaFacebookF /></a>
-                        <a href="#" title="Youtube social"><FaYoutube /></a>
+                        <a href="#" className="icon" title="Facebook social"><FaFacebookF /></a>
+                        <a href="#" className="icon" title="Youtube social"><FaYoutube /></a>
                     </div>
                 </div>
+            </div>
+
+            <div className="footer-bottom">
+                <p>2025 © Thienlong.vn - Bản quyền thuộc Công Ty TNHH MTV TM-DV Thiên Long Hoàn Cầu</p>
             </div>
         </div>
     );
