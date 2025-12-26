@@ -1,0 +1,101 @@
+#home {
+  background-color: #134a04;
+
+.container {
+  .banner-home {
+    .swiper-slide {
+      transition: all 0.4s ease;
+      transform: scale(0.85);
+
+      &-active {
+          transform: scale(1);
+          z-index: 999;
+          opacity: 1;
+
+        .banner-slider-img img {
+          box-shadow: 0 0 6px 5px rgba(179, 179, 179, 0.25);
+        }
+      }
+    }
+
+    .banner-slider {
+      width: auto;
+      height: auto;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .banner-slider-img {
+      img {
+        position: relative;
+        width: auto;
+        height: 350px;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+    }
+  }
+
+  .docQuyen {
+    margin-top: 2rem;
+
+    .img-docQuyen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 150px;
+      }
+    }
+
+    .product-docQuyen {
+      //display: flex;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      background-image: url("src/assets/titleTL-1.png");
+      background-color: #5d8afc;
+
+        .container-product {
+          padding: 0 10px;
+          background: #fff;
+
+          .name {
+            padding: 10px;
+            background-color: blue;
+
+            a {
+              color: #fff;
+              text-decoration: none;
+            }
+          }
+
+          .img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            img {
+              height: 200px;
+            }
+          }
+
+          .price {
+            display: flex;
+
+            .price-dis {
+              color: #2659f3;
+            }
+
+            .price-noDis {
+              color: #666666;
+            }
+          }
+        }
+      }
+    }
+  }
+}

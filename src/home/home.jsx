@@ -3,6 +3,30 @@ import './home.css'
 import {API_URL} from "../service/API_URL.jsx";
 import axios from "axios";
 
+import {Swiper, SwiperSlide} from "swiper/react";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+
+import banner1 from '../assets/banner1.webp'
+import banner2 from '../assets/banner2.jpg'
+import banner3 from '../assets/banner3.webp'
+import banner4 from '../assets/banner4.webp'
+import banner5 from '../assets/banner5.jpg'
+import banner6 from '../assets/banner6.jpg'
+import banner7 from '../assets/banner7.webp'
+import banner8 from '../assets/banner8.webp'
+import banner9 from '../assets/banner9.webp'
+import banner10 from '../assets/banner10.webp'
+import banner11 from '../assets/banner11.jpg'
+import banner12 from '../assets/banner12.webp'
+import titleTL from  '../assets/titleTL.webp'
+import frame from '../assets/frame-docquyen.webp'
+
+import Navbar from '../navbar/navbar.jsx'
+
 const Home = () => {
     const API = API_URL;
 
@@ -12,7 +36,7 @@ const Home = () => {
         const loadProducts = async () => {
             try {
                 const result = await  axios.get(`${API}/products`);
-                setProducts(result.data);
+               setProducts(result.data);
             } catch (e) {
                 console.log("Load Products: ", e);
             }
@@ -23,41 +47,58 @@ const Home = () => {
 
     return (
         <div id="home">
-            <h1>THIÊNLONG</h1>
-
-            <div>
-                <h1>Danh sách sản phẩm</h1>
-                <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                    {products.map((product) => (
-                        <div key={product.id} style={{ border: '1px solid #ccc', padding: '10px' }}>
-                            <img
-                                src={`${API_URL}${product.images[0]}`}
-                                alt={product.name}
-                                width="150"
-                            />
-                            <h3>{product.name}</h3>
-                            <p>{product.price} {product.currency}</p>
-                        </div>
-                    ))}
+            <div className="container">
+                {/*  BANNER  */}
+                <div className="banner-home">
+                    <Swiper
+                        modules={[Autoplay, Navigation, EffectFade]}
+                        slidesPerView={2.5}
+                        centeredSlides={true}
+                        // autoplay={{
+                        //     delay: 3000,
+                        //     disableOnInteraction: false,
+                        //     pauseOnMouseEnter: true
+                        // }}
+                        loop={true}
+                        className="banner-slider"
+                    >
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner1} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner2} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner3} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner4} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner5} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner6} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner7} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner8} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner9} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner10} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner11} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner12} alt="banner" /></a></SwiperSlide>
+                    </Swiper>
                 </div>
-            </div>
 
-            <div className="search">
-                <h2>Tìm kiếm sản phẩm</h2>
-            </div>
+                {/*  TL Doc Quyen  */}
+                <div className="docQuyen">
+                    <div className="img-docQuyen">
+                        <img src={titleTL} alt="TL Doc Quyen"/>
+                    </div>
 
-            <div className="support">
-                <h2>1900 866 819</h2>
-                <h3>Hỗ trợ khách hàng</h3>
-            </div>
-
-            <div className="user">
-                <h2>Đăng nhập</h2>
-                <h3>Đăng ký</h3>
-            </div>
-
-            <div className="cart">
-                <h2>Cart</h2>
+                    <div className="product-docQuyen">
+                        {
+                            products.slice(0, 5).map((item) => (
+                            <div className="container-product">
+                                <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
+                                <div className="img"><a href="#" title={item.name}><img src={`${API}${item.images[0]}`} alt=""/></a></div>
+                                <div className="price">
+                                    <div className="price-dis">{item.price}</div>
+                                    <div className="price-noDis">{item.originalPrice}</div>
+                                </div>
+                                <button className="btn-buy">Mua Ngay</button>
+                            </div>
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );
