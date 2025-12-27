@@ -23,7 +23,7 @@ import banner10 from '../assets/banner10.webp'
 import banner11 from '../assets/banner11.jpg'
 import banner12 from '../assets/banner12.webp'
 import titleTL from  '../assets/titleTL.webp'
-import frame from '../assets/frame-docquyen.webp'
+import btnBuy from '../assets/btn-buy.png'
 
 import Navbar from '../navbar/navbar.jsx'
 
@@ -45,6 +45,13 @@ const Home = () => {
         loadProducts();
     }, []);
 
+    const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
+        let savings = originalPrice - discountedPrice;
+        let percentage = (savings / originalPrice) * 100;
+
+        return Math.trunc(percentage);
+    }
+
     return (
         <div id="home">
             <div className="container">
@@ -54,26 +61,26 @@ const Home = () => {
                         modules={[Autoplay, Navigation, EffectFade]}
                         slidesPerView={2.5}
                         centeredSlides={true}
-                        // autoplay={{
-                        //     delay: 3000,
-                        //     disableOnInteraction: false,
-                        //     pauseOnMouseEnter: true
-                        // }}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        }}
                         loop={true}
                         className="banner-slider"
                     >
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner1} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner2} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner3} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner4} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner5} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner6} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner7} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner8} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner9} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner10} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner11} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="" title=""><img src={banner12} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Viết điều kỳ diệu cho mùa Giáng Sinh"><img src={banner1} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Bút viết cao cấp"><img src={banner2} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Giảm đến 50%"><img src={banner3} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Săn Deal Thiên Long"><img src={banner4} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Giấy in cao cấp"><img src={banner5} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Bút viết an lành"><img src={banner6} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Săn FLEXIO"><img src={banner7} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Sách hay khai trí thức"><img src={banner8} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Xả kho giá cực khét"><img src={banner9} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Viết điều kỳ diệu cho mùa Giáng Sinh"><img src={banner10} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Bút viết cao cấp"><img src={banner11} alt="banner" /></a></SwiperSlide>
+                        <SwiperSlide><a className="banner-slider-img" href="#" title="Giảm đến 50%"><img src={banner12} alt="banner" /></a></SwiperSlide>
                     </Swiper>
                 </div>
 
@@ -90,10 +97,13 @@ const Home = () => {
                                 <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
                                 <div className="img"><a href="#" title={item.name}><img src={`${API}${item.images[0]}`} alt=""/></a></div>
                                 <div className="price">
-                                    <div className="price-dis">{item.price}</div>
-                                    <div className="price-noDis">{item.originalPrice}</div>
+                                    <p className="price-dis">{item.price} {item.currency}</p>
+                                    <p className="price-noDis">{item.originalPrice} {item.currency}</p>
+                                    <div className="dis-per">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
                                 </div>
-                                <button className="btn-buy">Mua Ngay</button>
+                                <div className="buy">
+                                    <img className="btn-buy" src={btnBuy} alt="btn-buy"/>
+                                </div>
                             </div>
                             ))
                         }

@@ -1,5 +1,6 @@
 #home {
   background-color: #134a04;
+  padding-top: 10rem;
 
 .container {
   .banner-home {
@@ -44,6 +45,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: -3rem;
 
       img {
         height: 150px;
@@ -51,20 +53,29 @@
     }
 
     .product-docQuyen {
-      //display: flex;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 2rem;
+      gap: 1rem;
       background-image: url("src/assets/titleTL-1.png");
       background-color: #5d8afc;
+      padding: 3rem;
+      margin: 0 3rem;
+      border-radius: 2rem;
 
         .container-product {
-          padding: 0 10px;
-          background: #fff;
+          max-width: 250px;
+          background: #e6eeff;
+          border-style: solid;
+          border-color: #fff;
+          border-radius: 1rem;
 
           .name {
-            padding: 10px;
-            background-color: blue;
+            padding: .5rem;
+            background-color: #4cb3f5;
+            white-space: nowrap;
+            text-align: center;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
 
             a {
               color: #fff;
@@ -76,22 +87,58 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
 
             img {
-              height: 200px;
+              height: 250px;
+              border-style: solid;
+              border-color: #fff;
             }
           }
 
           .price {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .5rem;
 
             .price-dis {
               color: #2659f3;
+              font-weight: bold;
+              font-size: 1.1rem;
+              margin-right: .5rem;
             }
 
             .price-noDis {
               color: #666666;
+              font-size: .8rem;
+              text-decoration: line-through;
+              margin-right: .5rem;
+            }
+
+            .dis-per {
+              color: #ed1c24;
+              background: #ffcfcf;
+              padding: 3px 6px;
+              border-radius: 2rem;
+              font-size: 80%;
+              font-weight: bold;
+            }
+          }
+
+          .buy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -1.5rem;
+            cursor: pointer;
+
+            .btn-buy {
+              height: 3rem;
+            }
+
+            &:hover {
+              transform: scale(1.2);
+              transition: all 0.4s ease;
             }
           }
         }

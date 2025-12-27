@@ -1,5 +1,7 @@
 #navbar {
   background-color: #900002;
+  position: fixed;
+  z-index: 999;
 }
 #navbar .margin {
   margin: 0 1rem;
@@ -25,7 +27,7 @@
 }
 #navbar .header .logo .icon-xmas2 {
   position: absolute;
-  top: 4%;
+  top: 20%;
   left: 1.5%;
 }
 #navbar .header .logo .icon-xmas2 img {
