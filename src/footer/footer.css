@@ -48,6 +48,7 @@
   letter-spacing: 1px;
 }
 #footer .container .logo-footer .input-mail .mail {
+  width: 250px;
   margin-top: 1rem;
   padding: 0.8rem;
   border-top-left-radius: 1rem;

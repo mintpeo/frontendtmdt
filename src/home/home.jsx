@@ -4,7 +4,7 @@ import {API_URL} from "../service/API_URL.jsx";
 import axios from "axios";
 
 import {Swiper, SwiperSlide} from "swiper/react";
-import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import { Autoplay, Navigation, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -24,8 +24,21 @@ import banner11 from '../assets/banner11.jpg'
 import banner12 from '../assets/banner12.webp'
 import titleTL from  '../assets/titleTL.webp'
 import btnBuy from '../assets/btn-buy.png'
+import gifTopSale from '../assets/gif-topsale.gif'
+import gifCamNang from '../assets/gif-camnang.gif'
+import gifInAn from '../assets/gif-inan.gif'
+import gifKokomi from '../assets/gif-kokomi.gif'
+import gifKokomi2 from '../assets/gif-kokomi2.gif'
+import gifBalo from '../assets/gif-balo.gif'
+import gifTracking from '../assets/gif-tracking.gif'
+import gifVpp from '../assets/gif-vpp.gif'
+import flashSale from '../assets/flashsale.webp'
 
-import Navbar from '../navbar/navbar.jsx'
+import { AiOutlineStock } from "react-icons/ai";
+import { IoIosStar } from "react-icons/io";
+import { IoIosStarHalf } from "react-icons/io";
+import { IoIosStarOutline } from "react-icons/io";
+import { FaRegEye } from "react-icons/fa";
 
 const Home = () => {
     const API = API_URL;
@@ -45,11 +58,31 @@ const Home = () => {
         loadProducts();
     }, []);
 
+    //  Calculate Dis %
     const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
         let savings = originalPrice - discountedPrice;
         let percentage = (savings / originalPrice) * 100;
 
         return Math.trunc(percentage);
+    }
+
+    //  Rating Star
+    const RatingStars = (rating) => {
+        // rating: 4.7
+        let stars = [];
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                // Full star
+                stars.push(<IoIosStar key={i} color="#ffc107"/>);
+            } else if (i - 0.5 <= rating) {
+                // Half star 4.3 đến 4.7
+                stars.push(<IoIosStarHalf key={i} color="#ffc107"/>);
+            } else {
+                // Empty star
+                stars.push(<IoIosStarOutline key={i} color="#ffc107"/>);
+            }
+        }
+        return stars;
     }
 
     return (
@@ -103,6 +136,104 @@ const Home = () => {
                                 </div>
                                 <div className="buy">
                                     <img className="btn-buy" src={btnBuy} alt="btn-buy"/>
+                                </div>
+                            </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                {/*  Info  */}
+                <div className="info">
+                    <div className="item-sale">
+                        <a href="#" title="Top sale">
+                            <img src={gifTopSale} alt="top-sale"/>
+                            <p>Top sale</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Văn phòng phẩm">
+                            <img src={gifVpp} alt="Vpp"/>
+                            <p>Văn phòng phẩm</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Giải pháp in ấn">
+                            <img src={gifInAn} alt="inan"/>
+                            <p>Giải pháp in ấn</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Sản phẩm mới">
+                            <img src={gifBalo} alt="Balo"/>
+                            <p>Sản phẩm mới</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Cẩm nang ưu đãi">
+                            <img src={gifCamNang} alt="CamNang"/>
+                            <p>Cẩm nang ưu đãi</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Thư viện Thiên Long">
+                            <img src={gifKokomi} alt="Kokomi"/>
+                            <p>Thư viện Thiên Long</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Thư viện Thiên Long">
+                            <img src={gifKokomi2} alt="Kokomi2"/>
+                            <p>Thư viện Thiên Long</p>
+                        </a>
+                    </div>
+
+                    <div className="item-sale">
+                        <a href="#" title="Kiểm tra đơn hàng">
+                            <img src={gifTracking} alt="Tracking"/>
+                            <p>Kiểm tra đơn hàng</p>
+                        </a>
+                    </div>
+                </div>
+
+                {/*  Flash Sale  */}
+                <div className="flashSale">
+                    <img className="img-flashSale" src={flashSale} alt="flash-sale"/>
+                    <div className="list-product">
+                        {
+                            products.slice(0, 5).map((item) => (
+                            <div className="item">
+                                <div className="item-img"><img src={`${API}${item.images[0]}`} alt="item-img"/></div>
+                                <div className="item-stock">
+                                    <div className="icon"><AiOutlineStock />Số lượng: {item.stock}</div>
+                                </div>
+                                <div className="item-name"><p>{item.name}</p></div>
+                                <div className="item-rating">
+                                    <div className="icon-star">{RatingStars(item.rating)}</div>
+                                    <div className="rating-star">({item.rating})</div>
+                                </div>
+                                <div className="item-price">
+                                    <div className="price-dis">{item.price.toLocaleString()} {item.currency}</div>
+                                    <div className="price-noDis">
+                                        <div className="price-ori">
+                                            {item.originalPrice.toLocaleString()} {item.currency}
+                                        </div>
+                                        <div className="dis-per">
+                                            - {calculateDiscountPercentage(item.originalPrice, item.price)}%
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="btn-see">
+                                    <a className="btn" href="" title="Xem nhanh">
+                                        <i className="icon"><FaRegEye /></i>
+                                        <span>Xem nhanh</span>
+                                    </a>
                                 </div>
                             </div>
                             ))

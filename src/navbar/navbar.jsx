@@ -78,7 +78,7 @@ const Navbar = () => {
                     <ul className="list-contact-user">
                         <li className="item-contact-user" style={{width: 100}}></li>
 
-                        <li className="item-contact-user">
+                        <li className="item-contact-user margin">
                             <div className="icon"><BiSolidPhoneCall /></div>
                             <div className="name">
                                 <a className="first" href="#" title="1900 866 819">1900 866 819</a>
