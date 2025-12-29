@@ -93,7 +93,7 @@ const Navbar = () => {
                                 <span>
                                     <Link to="/user/login"><p className="first" title="Đăng nhập">Đăng nhập</p></Link>
                                 </span>
-                                <p className="second" title="Đăng ký">Đăng ký</p>
+                                <Link to="/user/sign"><p className="second" title="Đăng ký">Đăng ký</p></Link>
                             </div>
                         </li>
 

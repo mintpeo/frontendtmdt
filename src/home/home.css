@@ -46,8 +46,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-  background-image: url("src/assets/titleTL-1.png");
-  background-color: #5d8afc;
+  background: url("src/assets/titleTL-1.png") #5d8afc;
   padding: 3rem;
   border-radius: 2rem;
 }
