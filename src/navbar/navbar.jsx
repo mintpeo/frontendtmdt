@@ -12,6 +12,7 @@ import { FaChevronDown } from "react-icons/fa";
 
 import {API_URL} from "../service/API_URL.jsx";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const API = API_URL;
@@ -58,7 +59,7 @@ const Navbar = () => {
             {/*  HEADER  */}
             <div className="header">
                 <div className="logo">
-                    <a href="#"><img src={logo} alt="ThienLong"/></a>
+                    <Link to="/"><img src={logo} alt="ThienLong"/></Link>
 
                     <div className="icon-xmas2">
                         <img src={iconXmas2} alt=""/>
@@ -90,9 +91,9 @@ const Navbar = () => {
                             <div className="icon"><FaUser /></div>
                             <div className="name">
                                 <span>
-                                    <a className="first" href="#" title="Đăng nhập">Đăng nhập</a>
+                                    <Link to="/user/login"><p className="first" title="Đăng nhập">Đăng nhập</p></Link>
                                 </span>
-                                <a className="second" href="#" title="Đăng ký">Đăng ký</a>
+                                <p className="second" title="Đăng ký">Đăng ký</p>
                             </div>
                         </li>
 
