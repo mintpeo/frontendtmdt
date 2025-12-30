@@ -9,7 +9,7 @@ import Navbar from './navbar/navbar.jsx'
 import Footer from './footer/footer.jsx'
 import Login from './user/login/login.jsx'
 import Sign from './user/sign/sign.jsx'
-// import Info from './user/infoUser/info.jsx'
+import Info from './user/infoUser/info.jsx'
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
             <Navbar />
             <main className="main-content">
                 <Routes>
-                    <Route path="/" element={<Home />}/>
+                    <Route path="/" element={<Info />}/>
                     <Route path="/user/login" element={<Login />}/>
                     <Route path="/user/sign" element={<Sign />}/>
                 </Routes>

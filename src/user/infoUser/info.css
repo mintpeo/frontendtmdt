@@ -1,0 +1,125 @@
+#info {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+#info .container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  margin: 1rem 2.5rem;
+  box-shadow: 0 0 8px 2px rgba(179, 179, 179, 0.15);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+#info .container .info-user {
+  background: #f1f1f1;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+#info .container .info-user .ava {
+  display: flex;
+  justify-content: center;
+}
+#info .container .info-user .ava .user-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background: #fb9f10;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+#info .container .info-user .title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#info .container .info-user .title b {
+  color: #2659f3;
+}
+#info .container .info-user .list-section {
+  width: 25rem;
+  height: 20rem;
+}
+#info .container .info-user .list-section .list-items {
+  background: #2659f3;
+  border-radius: 1rem;
+  list-style: none;
+  overflow: hidden;
+}
+#info .container .info-user .list-section .list-items .item {
+  display: flex;
+  gap: 0.3rem;
+  color: #fff;
+  padding: 1rem 1rem;
+  cursor: pointer;
+}
+#info .container .info-user .list-section .list-items .item i {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  transform: scale(1.2);
+}
+#info .container .info-user .list-section .list-items .item .name {
+  font-weight: 600;
+}
+#info .container .info-user .list-section .list-items .item:hover {
+  background: #fb9f10;
+  transition: all 0.4s;
+}
+#info .container .info-user .list-section .list-items .active {
+  background: #fb9f10;
+}
+#info .container .account-boxs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+#info .container .account-boxs .item-box {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  transition: all 0.4s;
+  max-width: 40rem;
+}
+#info .container .account-boxs .item-box .item-box-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+#info .container .account-boxs .item-box .item-box-info .text {
+  color: #2659f3;
+  font-weight: 500;
+  width: 15rem;
+}
+#info .container .account-boxs .item-box .item-box-info .icon-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#info .container .account-boxs .item-box .item-box-info .icon-info .icon {
+  background-position: center;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.5rem;
+}
+#info .container .account-boxs .item-box .item-box-info .icon-info .btn {
+  padding: 0.5rem;
+  color: #2659f3;
+  background: #fbe263;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+#info .container .account-boxs .item-box:hover {
+  transform: translateY(-5px);
+}
+
+/*# sourceMappingURL=info.css.map */
