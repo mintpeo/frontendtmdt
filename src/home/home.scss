@@ -1,6 +1,6 @@
 #home {
   background-color: #134a04;
-  padding-top: 10rem;
+  padding-top: 2rem;
 
   @mixin margin-main {
     margin: 2.5rem 3rem 0;
@@ -62,8 +62,7 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 1rem;
-        background-image: url("src/assets/titleTL-1.png");
-        background-color: #5d8afc;
+        background: url("src/assets/titleTL-1.png") #5d8afc;
         padding: 3rem;
         border-radius: 2rem;
 
@@ -205,6 +204,8 @@
           max-width: 16.5rem;
 
           .item-img {
+            cursor: pointer;
+
             img {
               width: 100%;
               border-top-left-radius: 1rem;
@@ -236,6 +237,7 @@
             margin-top: .8rem;
             padding: 0 .3rem;
             text-align: center;
+            cursor: pointer;
           }
 
           .item-rating {
@@ -320,6 +322,10 @@
             transition: ease all .5s;
             transform: translateY(-.8rem);
             box-shadow: 0 0 8px 2px rgba(38, 89, 243, 0.15);
+
+            .item-name {
+              color: #cd0005;
+            }
           }
         }
       }
