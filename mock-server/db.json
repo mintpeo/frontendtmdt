@@ -450,20 +450,20 @@
       "id": "1",
       "email": "admin@gmail.com",
       "password": "123",
-      "lastName": "",
-      "firstName": "",
-      "phone": "",
-      "dateOfBirth": "",
-      "address": "",
-      "role": ""
+      "lastName": "Nguyen",
+      "firstName": "Hoai",
+      "phone": "123123123",
+      "dateOfBirth": "2/1/2003",
+      "address": "12312322222",
+      "role": "admin"
     },
     {
-      "id": "a4e9",
-      "email": "tranminh@com",
+      "id": "5766",
+      "email": "minh@gmail.com",
       "password": "123",
-      "lastName": "Minh",
-      "firstName": "Tran",
-      "phone": "123",
+      "lastName": "minh",
+      "firstName": "tran",
+      "phone": "1232222222222",
       "role": "user"
     }
   ]

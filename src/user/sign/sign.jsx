@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import './sign.css'
-import {API_URL} from "../../service/API_URL.jsx";
+import {API_URL, INFO_USER, KEY_LOGGED} from "../../service/API_URL.jsx";
 
 import {FaGoogle} from "react-icons/fa6";
 import {FaFacebook} from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+
 const Sign = () => {
     const API = API_URL;
+    const KEYLOGGED = KEY_LOGGED;
+    const INFOUSER = INFO_USER;
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,8 +52,12 @@ const Sign = () => {
             });
 
             if (res.ok) {
+                const resLogin = await fetch(`${API}/users?email=${email}&password=${password}`);
+                const user = await resLogin.json();
+                localStorage.setItem(KEYLOGGED, "true");
+                localStorage.setItem(INFOUSER, JSON.stringify(user[0]));
                 alert("Đăng ký thành công.");
-                // navigate("/user/login");
+                navigate("/");
             }
         } catch (error) {
             console.log("Error SignUp: ", error);

@@ -3,10 +3,16 @@ import './login.css'
 
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
-import {API_URL} from "../../service/API_URL.jsx";
+
+import {API_URL, INFO_USER, KEY_LOGGED} from "../../service/API_URL.jsx";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
     const API = API_URL;
+    const KEYLOGGED = KEY_LOGGED;
+    const INFOUSER = INFO_USER;
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,15 +22,20 @@ const Login = () => {
 
         try {
             const res = await fetch(`${API}/users?email=${email}&password=${password}`);
-            const user = await res.json();
+            const user = await res.json(); // array
 
             if (user.length > 0) {
-                alert("Thông tin đăng nhập thanh cong!");
+                // Save Info User
+                localStorage.setItem(KEYLOGGED, "true");
+                localStorage.setItem(INFOUSER, JSON.stringify(user[0])); // array[0]
+
+                alert("Đăng nhập thành công!");
+                navigate("/");
             } else {
-                alert("Thông tin đăng nhập không chính xác!");
+                alert("Sai thông tin tài khoản!");
             }
         } catch (error) {
-            console.error("Error Login:", error);
+            console.log("Error Login:", error);
         }
     };
 

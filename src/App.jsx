@@ -21,9 +21,10 @@ function App() {
             <Navbar />
             <main className="main-content">
                 <Routes>
-                    <Route path="/" element={<Info />}/>
+                    <Route path="/" element={<Home />}/>
                     <Route path="/user/login" element={<Login />}/>
                     <Route path="/user/sign" element={<Sign />}/>
+                    <Route path="/user/info" element={<Info />}/>
                 </Routes>
             </main>
             <Footer />

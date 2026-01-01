@@ -7,7 +7,6 @@ import { BsPostcardHeartFill } from "react-icons/bs";
 import { BsBox2HeartFill } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
 import { IoLogOutOutline } from "react-icons/io5";
-import { PiUserCircleFill } from "react-icons/pi";
 import faceIcon from "/src/assets/face1.gif"
 
 const Info = () => {
