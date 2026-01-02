@@ -39,6 +39,8 @@ const Sign = () => {
             lastName: lastName,
             firstName: firstName,
             phone: phone,
+            dateOfBirth: "",
+            address: "",
             role: "user"
         };
 
