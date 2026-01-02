@@ -47,9 +47,7 @@ const Navbar = () => {
             setLoginStatus("true");
             setUser(GetStoredUser());
         }
-    }, [location])
-
-    console.log(user);
+    }, [location]);
 
     // Button Logout
     const logout = () => {

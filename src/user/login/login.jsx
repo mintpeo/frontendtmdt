@@ -25,9 +25,19 @@ const Login = () => {
             const user = await res.json(); // array
 
             if (user.length > 0) {
+                const publicInfo = {
+                    id: user[0].id,
+                    lastName: user[0].lastName,
+                    firstName: user[0].firstName,
+                    email: user[0].email,
+                    phone: user[0].phone,
+                    "dateOfBirth": user[0].dateOfBirth,
+                    "address": user[0].address
+                }
+
                 // Save Info User
                 localStorage.setItem(KEYLOGGED, "true");
-                localStorage.setItem(INFOUSER, JSON.stringify(user[0])); // array[0]
+                localStorage.setItem(INFOUSER, JSON.stringify(publicInfo)); // array[0]
 
                 alert("Đăng nhập thành công!");
                 navigate("/");
