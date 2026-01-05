@@ -213,7 +213,7 @@ const Home = () => {
                                 <div className="item-stock">
                                     <div className="icon"><AiOutlineStock />Số lượng: {item.stock}</div>
                                 </div>
-                                <div className="item-name"><p>{item.name}</p></div>
+                                <div className="item-name"><p title={item.name}>{item.name}</p></div>
                                 <div className="item-rating">
                                     <div className="icon-star">{RatingStars(item.rating)}</div>
                                     <div className="rating-star">({item.rating})</div>

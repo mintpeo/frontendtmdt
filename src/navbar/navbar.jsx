@@ -10,15 +10,25 @@ import { FaUser } from "react-icons/fa";
 import { BsFillBagFill } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa";
 
-import {API_URL} from "../service/API_URL.jsx";
+import {API_URL, INFO_USER, KEY_LOGGED} from "../service/API_URL.jsx";
+import {GetStoredUser} from '../service/GetStoredUser.jsx';
 import axios from "axios";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const API = API_URL;
-    const [cates, setCates] = useState([]);
+    const KEYLOGGED = KEY_LOGGED;
+    const INFOUSER = INFO_USER;
 
-    // Load Data Categories
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const [cates, setCates] = useState([]);
+    const [loginStatus, setLoginStatus] = useState("");
+    const [user, setUser] = useState();
+
     useEffect(() => {
+        // Load Data Categories
         const loadCates = async () => {
             try {
                 const result = await  axios.get(`${API}/categories`);
@@ -27,9 +37,25 @@ const Navbar = () => {
                 console.log("Load Categories: ", e);
             }
         }
-
         loadCates();
     }, []);
+
+    // Login Status
+    useEffect(() => {
+        const status = localStorage.getItem(KEYLOGGED);
+        if (status) {
+            setLoginStatus("true");
+            setUser(GetStoredUser());
+        }
+    }, [location]);
+
+    // Button Logout
+    const logout = () => {
+      localStorage.removeItem(KEYLOGGED);
+      localStorage.removeItem(INFOUSER);
+      navigate("/");
+      window.location.reload();
+    };
 
     // Add icon-down
     const renderIconDown = (cateId) => {
@@ -58,7 +84,7 @@ const Navbar = () => {
             {/*  HEADER  */}
             <div className="header">
                 <div className="logo">
-                    <a href="#"><img src={logo} alt="ThienLong"/></a>
+                    <Link to="/"><img src={logo} alt="ThienLong"/></Link>
 
                     <div className="icon-xmas2">
                         <img src={iconXmas2} alt=""/>
@@ -90,9 +116,15 @@ const Navbar = () => {
                             <div className="icon"><FaUser /></div>
                             <div className="name">
                                 <span>
-                                    <a className="first" href="#" title="Đăng nhập">Đăng nhập</a>
+                                    {
+                                        loginStatus === "true" ? (<Link to="/user/info"><p className="first" title="Tài khoản">Hi, {user.lastName}</p></Link>)
+                                            : (<Link to="/user/login"><p className="first" title="Đăng nhập">Đăng nhập</p></Link>)
+                                    }
                                 </span>
-                                <a className="second" href="#" title="Đăng ký">Đăng ký</a>
+                                {
+                                 loginStatus === "true" ? (<p style={{cursor: "pointer"}} onClick={logout} className="second" title="Đăng xuất">Đăng xuất</p>)
+                                     : (<Link to="/user/sign"><p className="second" title="Đăng ký">Đăng ký</p></Link>)
+                                }
                             </div>
                         </li>
 
