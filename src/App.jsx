@@ -10,6 +10,7 @@ import Footer from './footer/footer.jsx'
 import Login from './user/login/login.jsx'
 import Sign from './user/sign/sign.jsx'
 import Info from './user/infoUser/info.jsx'
+import Cart from './cart/cart.jsx'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/user/login" element={<Login />}/>
                     <Route path="/user/sign" element={<Sign />}/>
                     <Route path="/user/info" element={<Info />}/>
+                    <Route path="/cart" element={<Cart />} />
                 </Routes>
             </main>
             <Footer />
