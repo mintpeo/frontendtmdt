@@ -11,15 +11,13 @@ import { FaUser } from "react-icons/fa";
 import { BsFillBagFill } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa";
 
-import {API_URL, INFO_USER, KEY_LOGGED} from "../service/API_URL.jsx";
+import {API_URL, INFO_USER, KEY_LOGGED, QUANTITY_CART} from "../service/API_URL.jsx";
 import {GetStoredUser} from '../service/GetStoredUser.jsx';
 import axios from "axios";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const API = API_URL;
-    const KEYLOGGED = KEY_LOGGED;
-    const INFOUSER = INFO_USER;
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -43,7 +41,7 @@ const Navbar = () => {
 
     // Login Status
     useEffect(() => {
-        const status = localStorage.getItem(KEYLOGGED);
+        const status = localStorage.getItem(KEY_LOGGED);
         if (status) {
             setLoginStatus("true");
             setUser(GetStoredUser());
@@ -52,8 +50,8 @@ const Navbar = () => {
 
     // Button Logout
     const logout = () => {
-      localStorage.removeItem(KEYLOGGED);
-      localStorage.removeItem(INFOUSER);
+      localStorage.removeItem(KEY_LOGGED);
+      localStorage.removeItem(INFO_USER);
       navigate("/");
       window.location.reload();
     };
@@ -141,7 +139,7 @@ const Navbar = () => {
                         <li className="item-contact-user">
                             <div onClick={clickCart} className="cart flex-center" title="Giỏ hàng">
                                 <BsFillBagFill />
-                                <div className="count flex-center">0</div>
+                                <div className="count flex-center">{localStorage.getItem(QUANTITY_CART)}</div>
                             </div>
                         </li>
                     </ul>

@@ -24,7 +24,7 @@ const Info = () => {
     const navigate = useNavigate();
 
     const [user] = useState(GetStoredUser);
-    const [btnPage, setBtnPage] = useState(4);
+    const [btnPage, setBtnPage] = useState(1);
 
     const Page = () => {
       switch (btnPage) {

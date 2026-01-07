@@ -4,7 +4,6 @@ import {GetStoredUser} from "../../../../service/GetStoredUser.jsx";
 import {API_URL, INFO_USER} from "../../../../service/API_URL.jsx";
 
 const User = () => {
-    const API = API_URL;
     const INFOUSER = INFO_USER;
 
     const [user, setUser] = useState(GetStoredUser);
@@ -25,11 +24,9 @@ const User = () => {
         }
 
         try {
-            const res = await fetch(`${API}/users/${user.id}`, {
+            const res = await fetch(`${API_URL}/users/${user.id}`, {
                 method: "PATCH",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(newInfo),
             });
 

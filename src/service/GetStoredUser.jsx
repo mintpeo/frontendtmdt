@@ -1,8 +1,7 @@
 import { INFO_USER } from "./API_URL.jsx";
 
 export const GetStoredUser = () => {
-    const INFOUSER = INFO_USER;
-    const saved = localStorage.getItem(INFOUSER);
+    const saved = localStorage.getItem(INFO_USER);
     if (!saved) return;
 
     try {

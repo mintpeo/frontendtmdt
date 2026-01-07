@@ -9,8 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 const Sign = () => {
     const API = API_URL;
-    const KEYLOGGED = KEY_LOGGED;
-    const INFOUSER = INFO_USER;
 
     const navigate = useNavigate();
 
@@ -56,8 +54,8 @@ const Sign = () => {
             if (res.ok) {
                 const resLogin = await fetch(`${API}/users?email=${email}&password=${password}`);
                 const user = await resLogin.json();
-                localStorage.setItem(KEYLOGGED, "true");
-                localStorage.setItem(INFOUSER, JSON.stringify(user[0]));
+                localStorage.setItem(KEY_LOGGED, "true");
+                localStorage.setItem(INFO_USER, JSON.stringify(user[0]));
                 alert("Đăng ký thành công.");
                 navigate("/");
             }

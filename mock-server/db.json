@@ -312,6 +312,7 @@
       "price": 11000,
       "originalPrice": 12000,
       "currency": "VND",
+      "colors": [],
       "stock": 1000,
       "rating": 4.7,
       "reviews": 200,
@@ -331,6 +332,7 @@
       "price": 5000,
       "originalPrice": 5000,
       "currency": "VND",
+      "colors": [],
       "stock": 150,
       "rating": 4.6,
       "reviews": 50,
@@ -465,6 +467,32 @@
       "firstName": "tran",
       "phone": "1232222222222",
       "role": "user"
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "userId": "2",
+      "productId": "1",
+      "name": "Bút Bi Thiên Long TL-027",
+      "color": "Xanh",
+      "price": 4500,
+      "originalPrice": 5000,
+      "currency": "VND",
+      "quantity": 4,
+      "image": "/images/TL027.jpg"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "productId": "1",
+      "name": "Bút Bi Thiên Long TL-027",
+      "color": "Xanh",
+      "price": 4500,
+      "originalPrice": 5000,
+      "currency": "VND",
+      "quantity": 3,
+      "image": "/images/TL027.jpg"
     }
   ]
 }

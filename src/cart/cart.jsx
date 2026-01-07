@@ -1,65 +1,172 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './cart.css';
-import {Link} from "react-router-dom";
+import axios from "axios";
 
-import Banner from '../assets/banner2.jpg'
+import {Link} from "react-router-dom";
 import { MdLocalShipping } from "react-icons/md";
+import {API_URL, QUANTITY_CART} from "../service/API_URL.jsx";
+import {GetStoredUser} from "../service/GetStoredUser.jsx";
 
 const Cart = () => {
-    const [quantity, setQuantity] = useState(0);
+    const [user] = useState(GetStoredUser);
+    const [carts, setCarts] = useState([]);
+    const [selectedItems, setSelectedItems] = useState([]);
+
+    // Load List Carts
+    const loadCarts = async () => {
+        try {
+            const result = await axios.get(`${API_URL}/carts?userId=${user.id}`);
+            setCarts(result.data);
+        } catch (e) {
+            console.log("Load Carts: ", e);
+        }
+    }
+
+    useEffect(() => {
+        loadCarts();
+    }, []);
+
+    // Selected Item
+    const toggleSelectItem = (id) => {
+        if (selectedItems.includes(id)) {
+            setSelectedItems(selectedItems.filter(itemId => itemId !== id));
+        } else {
+            setSelectedItems([...selectedItems, id]);
+        }
+    };
+
+    // Total Price In Cart
+    const totalPrice = () => {
+        let total = 0;
+        let stringCur = "";
+
+        selectedItems.forEach(itemSelected => {
+            carts.forEach(itemCart => {
+                if (itemSelected === itemCart.id) {
+                    total += itemCart.price * itemCart.quantity;
+                    stringCur = itemCart.currency;
+                }
+            })
+        })
+
+        return total.toLocaleString() + " " + stringCur;
+    };
+
+    useEffect(() => {
+        if (carts && carts.length > 0) {
+            let quantity = carts.length;
+            localStorage.setItem(QUANTITY_CART, quantity);
+        } else if (carts.length < 0) localStorage.setItem(QUANTITY_CART, 0);
+    });
 
     // Add or Sub Quantity
-    const changeQuantity = (type) => {
-        if (type === "+") setQuantity(quantity + 1);
-        else setQuantity(quantity > 1 ? quantity - 1 : 1);
+    const updateQuantity = async (num, id, quantity) => {
+        let newQuantity = num + quantity;
+
+        if (newQuantity < 1) return;
+
+        try {
+            const res = await fetch(`${API_URL}/carts/${id}`, {
+                method: "PATCH",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({"quantity": newQuantity}),
+            });
+
+            if (res.ok) loadCarts();
+        } catch (e) {
+            console.log("ERROR UPDATE_QUANTITY ", e);
+        }
     };
+
+    // Remove Product In Cart
+    const removeProduct = async (id) => {
+        const isConfirm = window.confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?");
+
+        if (isConfirm) {
+            try {
+                const res = await fetch(`${API_URL}/carts/${id}`, {
+                    method: "DELETE",
+                });
+
+                if (res.ok) {
+                    loadCarts();
+                    window.location.reload();
+                }
+            } catch (e) {
+                console.log("ERROR REMOVE_FROM_CART ", e);
+            }
+        }
+    };
+
+    //  Calculate Dis %
+    const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
+        let savings = originalPrice - discountedPrice;
+        let percentage = (savings / originalPrice) * 100;
+
+        return Math.trunc(percentage);
+    }
 
     return (
         <div id="cart">
             <div className="container">
                 <div className="title">Giỏ hàng</div>
-                {/*<p>Chưa có sản phẩm nào trong giỏ hàng - quay về <Link to="/" style={{textDecoration: "none", color: "#007bff"}}>Trang Chủ</Link> để mua hàng</p>*/}
-                <div className="main-cart">
-                    <div className="container-left">
-                        <img src={Banner} alt="" className="item-img"/>
+                {
+                    carts && carts.length > 0 ? (
+                        <div className="main-cart">
+                            <div className="container-left">
+                                {
+                                    carts.map((item) => (
+                                            <div className="list-cart">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedItems.includes(item.id)}
+                                                    onChange={() => toggleSelectItem(item.id)}
+                                                />
 
-                        <div className="item-cart">
-                            <div className="item-left">
-                                <div className="name" title="222">Combo 10 Bút gel Minimalist Thiên Long Gel-072</div>
-                                <div className="type">Mực Xanh</div>
+                                                <img src={`${API_URL}${item.image}`} alt="" className="item-img"/>
+
+                                                <div className="item-cart">
+                                                    <div className="item-left">
+                                                        <div className="name" title="222">{item.name}</div>
+                                                        <div className="type">Mực {item.color}</div>
+                                                    </div>
+
+                                                    <div className="item-middle">
+                                                        <div className="price-dis">{item.price.toLocaleString()} {item.currency}</div>
+                                                        <div className="price-noDis">{item.originalPrice.toLocaleString()} {item.currency}</div>
+                                                        <div className="price-percent">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
+                                                    </div>
+
+                                                    <div className="item-right">
+                                                        <button onClick={() => updateQuantity(-1, item.id, item.quantity)} className="btn">-</button>
+                                                        <div className="quantity">{item.quantity}</div>
+                                                        <button onClick={() => updateQuantity(+1, item.id, item.quantity)} className="btn" style={{borderRadius: "0 4px 4px 0"}}>+</button>
+                                                    </div>
+
+                                                    <button onClick={() => removeProduct(item.id)} className="btn-remove" title="Xoá">X</button>
+                                                </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
+                            <div className="container-right">
+                                <div className="total-price">
+                                    <div>Tổng tiền</div>
+                                    <div className="price">{totalPrice()}</div>
+                                </div>
 
-                            <div className="item-middle">
-                                <div className="price-dis">197,200₫</div>
-                                <div className="price-noDis">232,000₫</div>
-                                <div className="price-percent">-15%</div>
+                                <div className="note">
+                                    <div className="title-note">Ghi chú đơn hàng <span>(Không hỗ trợ đổi hàng và màu sắc liên quan đơn hàng sản phẩm giao ngẫu nhiên)</span></div>
+                                    <textarea className="input-note" rows="8"></textarea>
+                                    <button className="btn-cart" title="Tiến hành đặt hàng">Tiến hành đặt hàng</button>
+                                </div>
                             </div>
-
-                            <div className="item-right">
-                                <button onClick={() => changeQuantity("-")} className="btn">-</button>
-                                <div className="quantity">{quantity}</div>
-                                <button onClick={() => changeQuantity("+")} className="btn" style={{borderRadius: "0 4px 4px 0"}}>+</button>
-                            </div>
-
-                            <button className="btn-remove" title="Xoá">X</button>
+                            <div className="free-ship"><i><MdLocalShipping /></i>Miễn phí vận chuyển cho đơn hàng từ 100,000₫</div>
                         </div>
-                    </div>
-
-                    <div className="container-right">
-                        <div className="total-price">
-                            <div>Tổng tiền</div>
-                            <div className="price">197,200₫</div>
-                        </div>
-
-                        <div className="note">
-                            <div className="title-note">Ghi chú đơn hàng <span>(Không hỗ trợ đổi hàng và màu sắc liên quan đơn hàng sản phẩm giao ngẫu nhiên)</span></div>
-                            <textarea className="input-note" rows="8"></textarea>
-                            <button className="btn-cart" title="Tiến hành đặt hàng">Tiến hành đặt hàng</button>
-                        </div>
-                    </div>
-
-                    <div className="free-ship"><i><MdLocalShipping /></i>Miễn phí vận chuyển cho đơn hàng từ 100,000₫</div>
-                </div>
+                    ) : (
+                        <p>Chưa có sản phẩm nào trong giỏ hàng - quay về <Link to="/" style={{textDecoration: "none", color: "#007bff"}}>Trang Chủ</Link> để mua hàng</p>
+                    )
+                }
             </div>
         </div>
     );

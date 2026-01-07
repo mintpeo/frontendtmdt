@@ -48,13 +48,12 @@ const Home = () => {
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const result = await  axios.get(`${API}/products`);
+                const result = await axios.get(`${API}/products`);
                setProducts(result.data);
             } catch (e) {
                 console.log("Load Products: ", e);
             }
         }
-
         loadProducts();
     }, []);
 
@@ -125,20 +124,24 @@ const Home = () => {
 
                     <div className="product-docQuyen">
                         {
-                            products.slice(0, 5).map((item) => (
-                            <div className="container-product">
-                                <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
-                                <div className="img"><a href="#" title={item.name}><img src={`${API}${item.images[0]}`} alt=""/></a></div>
-                                <div className="price">
-                                    <p className="price-dis">{item.price} {item.currency}</p>
-                                    <p className="price-noDis">{item.originalPrice} {item.currency}</p>
-                                    <div className="dis-per">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
-                                </div>
-                                <div className="buy">
-                                    <img className="btn-buy" src={btnBuy} alt="btn-buy"/>
-                                </div>
-                            </div>
-                            ))
+                            products && products.length > 0 ? (
+                                products.slice(0, 5).map((item) => (
+                                    <div className="container-product">
+                                        <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
+                                        <div className="img"><a href="#" title={item.name}><img src={`${API}${item.images[0]}`} alt=""/></a></div>
+                                        <div className="price">
+                                            <p className="price-dis">{item.price} {item.currency}</p>
+                                            <p className="price-noDis">{item.originalPrice} {item.currency}</p>
+                                            <div className="dis-per">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
+                                        </div>
+                                        <div className="buy">
+                                            <img className="btn-buy" src={btnBuy} alt="btn-buy"/>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Loading...</p>
+                            )
                         }
                     </div>
                 </div>

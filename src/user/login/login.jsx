@@ -8,10 +8,6 @@ import {API_URL, INFO_USER, KEY_LOGGED} from "../../service/API_URL.jsx";
 import {useNavigate} from "react-router-dom";
 
 const Login = () => {
-    const API = API_URL;
-    const KEYLOGGED = KEY_LOGGED;
-    const INFOUSER = INFO_USER;
-
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -21,7 +17,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const res = await fetch(`${API}/users?email=${email}&password=${password}`);
+            const res = await fetch(`${API_URL}/users?email=${email}&password=${password}`);
             const user = await res.json(); // array
 
             if (user.length > 0) {
@@ -36,8 +32,8 @@ const Login = () => {
                 }
 
                 // Save Info User
-                localStorage.setItem(KEYLOGGED, "true");
-                localStorage.setItem(INFOUSER, JSON.stringify(publicInfo)); // array[0]
+                localStorage.setItem(KEY_LOGGED, "true");
+                localStorage.setItem(INFO_USER, JSON.stringify(publicInfo)); // array[0]
 
                 alert("Đăng nhập thành công!");
                 navigate("/");

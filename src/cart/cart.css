@@ -17,62 +17,65 @@
 }
 #cart .container p {
   font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 #cart .container .main-cart {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 1rem;
   align-items: start; /* Giúp border chỉ ôm vừa đủ sản phẩm */
 }
-#cart .container .main-cart .container-left {
+#cart .container .main-cart .container-left .list-cart {
   display: flex;
   gap: 1rem;
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
-#cart .container .main-cart .container-left .item-img {
+#cart .container .main-cart .container-left .list-cart .item-img {
   width: auto;
   height: 5rem;
 }
-#cart .container .main-cart .container-left .item-cart {
+#cart .container .main-cart .container-left .list-cart .item-cart {
   display: grid;
-  grid-template-columns: 1fr 0.4fr 1fr;
+  grid-template-columns: 2fr 2fr 0.5fr;
   height: 5rem;
   gap: 2rem;
   padding: 1rem 0;
   position: relative;
+  width: 100%;
 }
-#cart .container .main-cart .container-left .item-cart .item-left {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-left {
   text-align: left;
 }
-#cart .container .main-cart .container-left .item-cart .item-left .name {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-left .name {
   white-space: nowrap;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
-#cart .container .main-cart .container-left .item-cart .item-left .name:hover {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-left .name:hover {
   color: #2659f3;
 }
-#cart .container .main-cart .container-left .item-cart .item-left .type {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-left .type {
   font-size: 0.8rem;
   font-weight: 400;
   color: #898989;
 }
-#cart .container .main-cart .container-left .item-cart .item-middle {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-middle {
   display: flex;
   gap: 1.5rem;
 }
-#cart .container .main-cart .container-left .item-cart .item-middle .price-dis {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-middle .price-dis {
   font-weight: 700;
   font-size: 1rem;
 }
-#cart .container .main-cart .container-left .item-cart .item-middle .price-noDis {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-middle .price-noDis {
   text-decoration: line-through;
   font-size: 0.8rem;
 }
-#cart .container .main-cart .container-left .item-cart .item-middle .price-percent {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-middle .price-percent {
   text-align: center;
   width: 3.5rem;
   height: 18px;
@@ -80,11 +83,11 @@
   border-radius: 2rem;
   color: #fff;
 }
-#cart .container .main-cart .container-left .item-cart .item-right {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-right {
   display: flex;
   max-height: 2rem;
 }
-#cart .container .main-cart .container-left .item-cart .item-right .btn {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-right .btn {
   padding: 0.4rem 0.8rem;
   border: 1px solid #ced4da;
   background: #fff;
@@ -92,14 +95,14 @@
   font-size: 1rem;
   cursor: pointer;
 }
-#cart .container .main-cart .container-left .item-cart .item-right .quantity {
+#cart .container .main-cart .container-left .list-cart .item-cart .item-right .quantity {
   text-align: center;
   border-style: solid none;
   padding: 0.4rem 1rem;
   border-width: 1px;
   border-color: #ced4da;
 }
-#cart .container .main-cart .container-left .item-cart .btn-remove {
+#cart .container .main-cart .container-left .list-cart .item-cart .btn-remove {
   position: absolute;
   right: 0;
   top: 0;
@@ -115,6 +118,7 @@
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 1rem;
+  height: 100%;
 }
 #cart .container .main-cart .container-right .total-price {
   display: flex;
