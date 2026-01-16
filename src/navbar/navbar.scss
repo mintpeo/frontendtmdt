@@ -17,7 +17,7 @@
   .header {
     display: flex;
     align-items: center;
-    margin: 0 4rem;
+    margin: 0 3rem;
     padding: .9rem 0;
 
     .logo {
@@ -239,10 +239,7 @@
             width: 2rem;
             height: 2rem;
             cursor: pointer;
-
-            a {
-              color: #f5e09e;
-            }
+            color: #f5e09e;
 
             .count {
               position: absolute;

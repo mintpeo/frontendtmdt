@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
 
-import logo from "../assets/logoTL.png";
-import iconXmas from "../assets/icon-xmas.png";
-import iconXmas2 from "../assets/icon-xmas2.png";
+import logo from '../assets/logoTL.png';
+import iconXmas from '../assets/icon-xmas.png';
+import iconXmas2 from '../assets/icon-xmas2.png';
+
 import { FaSearch } from "react-icons/fa";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
@@ -59,6 +60,15 @@ const Navbar = () => {
     window.location.reload();
   };
 
+  // No Login When Click Cart
+  const clickCart = () => {
+    if (user?.id) return navigate("/cart");
+    else {
+      alert("Bạn chưa đăng nhập tài khoản!");
+      navigate("/user/login");
+    }
+  };
+
   // Add icon-down
   const renderIconDown = (cateId) => {
     if (cateId !== "cate6") return <FaChevronDown />;
@@ -98,6 +108,7 @@ const Navbar = () => {
 
   // Featured categories data
   const featuredCategories = [];
+
   return (
     <div id="navbar">
       {/*  HEADER  */}
@@ -232,11 +243,9 @@ const Navbar = () => {
             </li>
 
             <li className="item-contact-user">
-              <div className="cart flex-center">
-                <a href="#" title="Giỏ hàng">
-                  <BsFillBagFill />
-                  <div className="count flex-center">0</div>
-                </a>
+              <div onClick={clickCart} className="cart flex-center" title="Giỏ hàng">
+                <BsFillBagFill />
+                <div className="count flex-center">0</div>
               </div>
             </li>
           </ul>
