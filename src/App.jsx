@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import Snowfall from "react-snowfall";
-import Scroll from './service/ScrollToTop.jsx'
-import './App.css'
+import Scroll from "./service/ScrollToTop.jsx";
+import "./App.css";
 
 import Home from './home/home.jsx'
 import Navbar from './navbar/navbar.jsx'
@@ -13,7 +13,6 @@ import Info from './user/infoUser/info.jsx'
 import Cart from './cart/cart.jsx'
 
 function App() {
-
   return (
     <>
         <Router>
@@ -32,7 +31,7 @@ function App() {
             <Footer />
         </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -44,6 +44,7 @@
     .search {
       display: flex;
       padding: 0 1.5rem;
+      position: relative;
 
       .search-input {
         width: 600px;
@@ -63,6 +64,109 @@
         border-top-right-radius: 12px;
         border-bottom-right-radius: 12px;
         cursor: pointer;
+      }
+
+      // Search Suggest Dropdown
+      .search-suggest {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 1.5rem;
+        width: 600px;
+        z-index: 1000;
+        background: transparent;
+
+        .search-suggest--wrap {
+          background: #dcf9ff;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          position: relative;
+
+          h6 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+
+            &.mt-3 {
+              margin-top: 1.5rem;
+            }
+
+            &.hidden-index {
+              display: none;
+            }
+          }
+
+          .search-suggest--list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            li {
+              margin: 0;
+
+              a {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                transition: all 0.2s ease;
+
+                &.style1 {
+                  background: #fff;
+                  color: #1062b8;
+                  border: 1px solid #1062b8;
+                  font-weight: 500;
+
+                  .trend-icon {
+                    color: #1062b8;
+                    font-size: 0.9rem;
+                  }
+
+                  &:hover {
+                    background: #1062b8;
+                    color: #fff;
+                    border-color: #1062b8;
+
+                    .trend-icon {
+                      color: #fff;
+                    }
+                  }
+                }
+
+                &.style2 {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.75rem 1rem;
+                  border-radius: 8px;
+                  font-weight: 500;
+                  border: none;
+
+                  .search-suggest--icon {
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                  }
+
+                  &:hover {
+                    opacity: 0.9;
+                    transform: translateY(-2px);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
 
