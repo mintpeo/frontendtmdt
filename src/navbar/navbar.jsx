@@ -97,58 +97,7 @@ const Navbar = () => {
   ];
 
   // Featured categories data
-  const featuredCategories = [
-    // {
-    //   title: "Bút viết",
-    //   href: "/collections/but-viet",
-    //   color: "#1062b8",
-    //   bgColor: "transparent",
-    //   icon: "menu_icon_1.png",
-    // },
-    // {
-    //   title: "Văn phòng phẩm",
-    //   href: "/collections/van-phong-pham",
-    //   color: "#0b944b",
-    //   bgColor: "#cdffe5",
-    //   icon: "menu_icon_2.png",
-    // },
-    // {
-    //   title: "Dụng Cụ Học Tập",
-    //   href: "/collections/dung-cu-hoc-tap-fixed",
-    //   color: "#00c5ec",
-    //   bgColor: "#dcf9ff",
-    //   icon: "menu_icon_3.png",
-    // },
-    // {
-    //   title: "Mỹ Thuật",
-    //   href: "/collections/my-thuat",
-    //   color: "#e7bb00",
-    //   bgColor: "#fffae7",
-    //   icon: "menu_icon_4.png",
-    // },
-    // {
-    //   title: "Giấy In",
-    //   href: "/collections/giay-in",
-    //   color: "#2784c6",
-    //   bgColor: "transparent",
-    //   icon: "menu_icon_5.png",
-    // },
-    // {
-    //   title: "Bút cao cấp",
-    //   href: "/collections/san-pham-cao-cap-qua-tang",
-    //   color: "#ff0000",
-    //   bgColor: "#ffdfdf",
-    //   icon: "menu_icon_6.png",
-    // },
-    // {
-    //   title: "Sports - Lifestyle",
-    //   href: "/collections/do-dung-lifestyle-qua-tang",
-    //   color: "#9900ff",
-    //   bgColor: "#ffe0fc",
-    //   icon: "menu_icon_7.png",
-    // },
-  ];
-
+  const featuredCategories = [];
   return (
     <div id="navbar">
       {/*  HEADER  */}
