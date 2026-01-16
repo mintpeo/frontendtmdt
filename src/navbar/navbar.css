@@ -15,7 +15,7 @@
 #navbar .header {
   display: flex;
   align-items: center;
-  margin: 0 4rem;
+  margin: 0 3rem;
   padding: 0.9rem 0;
 }
 #navbar .header .logo {
@@ -288,8 +288,6 @@
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-}
-#navbar .header .contact-user .list-contact-user .item-contact-user .cart a {
   color: #f5e09e;
 }
 #navbar

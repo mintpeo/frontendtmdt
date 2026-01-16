@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
 
-import logo from "../assets/logoTL.png";
-import iconXmas from "../assets/icon-xmas.png";
-import iconXmas2 from "../assets/icon-xmas2.png";
+import logo from '../assets/logoTL.png';
+import iconXmas from '../assets/icon-xmas.png';
+import iconXmas2 from '../assets/icon-xmas2.png';
+
 import { FaSearch } from "react-icons/fa";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
@@ -51,13 +52,21 @@ const Navbar = () => {
     }
   }, [location]);
 
-  // Button Logout
-  const logout = () => {
-    localStorage.removeItem(KEYLOGGED);
-    localStorage.removeItem(INFOUSER);
-    navigate("/");
-    window.location.reload();
-  };
+    // No Login When Click Cart
+    const clickCart = () => {
+      if (user?.id) return navigate("/cart");
+      else {
+          alert("Bạn chưa đăng nhập tài khoản!");
+          navigate("/user/login");
+      }
+    };
+
+    return (
+        <div id="navbar">
+            {/*  HEADER  */}
+            <div className="header">
+                <div className="logo">
+                    <Link to="/"><img src={logo} alt="ThienLong"/></Link>
 
   // Add icon-down
   const renderIconDown = (cateId) => {
@@ -71,97 +80,47 @@ const Navbar = () => {
     return {};
   };
 
-  // Load cate.items by cate.id
-  const getCateById = (cateId) => {
-    return cates.find((c) => c.id === cateId)?.items ?? null;
-  };
+                <div className="contact-user">
+                    <div className="icon-xmas">
+                        <img src={iconXmas} alt="iconXmax"/>
+                    </div>
+                    
+                    <ul className="list-contact-user">
+                        <li className="item-contact-user" style={{width: 100}}></li>
 
-  // Load cate.banner by cate.id
-  const getCateBannerById = (cateId) => {
-    return cates.find((c) => c.id === cateId)?.banner ?? null;
-  };
+                        <li className="item-contact-user margin">
+                            <div className="icon"><BiSolidPhoneCall /></div>
+                            <div className="name">
+                                <a className="first" href="#" title="1900 866 819">1900 866 819</a>
+                                <span className="second">Hỗ trợ khách hàng</span>
+                            </div>
+                        </li>
 
-  // Trending searches data
-  const trendingSearches = [
-    { title: "Cặp chống gù", href: "#" },
-    { title: "Combo giấy in", href: "#" },
-    { title: "Máy tính", href: "#" },
-    { title: "Bút màu", href: "#" },
-    { title: "Băng keo", href: "#" },
-    { title: "Đồ chơi", href: "#" },
-    { title: "Quà tặng cao cấp", href: "#" },
-    { title: "Đèn bàn", href: "#" },
-    { title: "Tập học sinh", href: "#" },
-    { title: "Sách tiếng Anh", href: "#" },
-    { title: "Demon Slayer", href: "#" },
-  ];
+                        <li className="item-contact-user margin">
+                            <div className="icon"><FaUser /></div>
+                            <div className="name">
+                                <span>
+                                    {
+                                        loginStatus === "true" ? (<Link to="/user/info"><p className="first" title="Tài khoản">Hi, {user.lastName}</p></Link>)
+                                            : (<Link to="/user/login"><p className="first" title="Đăng nhập">Đăng nhập</p></Link>)
+                                    }
+                                </span>
+                                {
+                                 loginStatus === "true" ? (<p style={{cursor: "pointer"}} onClick={logout} className="second" title="Đăng xuất">Đăng xuất</p>)
+                                     : (<Link to="/user/sign"><p className="second" title="Đăng ký">Đăng ký</p></Link>)
+                                }
+                            </div>
+                        </li>
 
-  // Featured categories data
-  const featuredCategories = [
-    // {
-    //   title: "Bút viết",
-    //   href: "/collections/but-viet",
-    //   color: "#1062b8",
-    //   bgColor: "transparent",
-    //   icon: "menu_icon_1.png",
-    // },
-    // {
-    //   title: "Văn phòng phẩm",
-    //   href: "/collections/van-phong-pham",
-    //   color: "#0b944b",
-    //   bgColor: "#cdffe5",
-    //   icon: "menu_icon_2.png",
-    // },
-    // {
-    //   title: "Dụng Cụ Học Tập",
-    //   href: "/collections/dung-cu-hoc-tap-fixed",
-    //   color: "#00c5ec",
-    //   bgColor: "#dcf9ff",
-    //   icon: "menu_icon_3.png",
-    // },
-    // {
-    //   title: "Mỹ Thuật",
-    //   href: "/collections/my-thuat",
-    //   color: "#e7bb00",
-    //   bgColor: "#fffae7",
-    //   icon: "menu_icon_4.png",
-    // },
-    // {
-    //   title: "Giấy In",
-    //   href: "/collections/giay-in",
-    //   color: "#2784c6",
-    //   bgColor: "transparent",
-    //   icon: "menu_icon_5.png",
-    // },
-    // {
-    //   title: "Bút cao cấp",
-    //   href: "/collections/san-pham-cao-cap-qua-tang",
-    //   color: "#ff0000",
-    //   bgColor: "#ffdfdf",
-    //   icon: "menu_icon_6.png",
-    // },
-    // {
-    //   title: "Sports - Lifestyle",
-    //   href: "/collections/do-dung-lifestyle-qua-tang",
-    //   color: "#9900ff",
-    //   bgColor: "#ffe0fc",
-    //   icon: "menu_icon_7.png",
-    // },
-  ];
-
-  return (
-    <div id="navbar">
-      {/*  HEADER  */}
-      <div className="header">
-        <div className="logo">
-          <Link to="/">
-            <img src={logo} alt="ThienLong" />
-          </Link>
-
-          <div className="icon-xmas2">
-            <img src={iconXmas2} alt="" />
-          </div>
-        </div>
+                        <li className="item-contact-user">
+                            <div onClick={clickCart} className="cart flex-center" title="Giỏ hàng">
+                                <BsFillBagFill />
+                                <div className="count flex-center">0</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
         <div className="search" style={{ position: "relative" }}>
           <input

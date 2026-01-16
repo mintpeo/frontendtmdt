@@ -14,6 +14,7 @@ import {GetStoredUser} from "../../service/GetStoredUser.jsx";
 import AccountBoxs from "./rightPage/boxs/accountBoxs.jsx";
 import User from './rightPage/user/user.jsx';
 import Password from './rightPage/password/password.jsx';
+import Member from './rightPage/member/member.jsx';
 
 import {useNavigate} from "react-router-dom";
 
@@ -23,13 +24,14 @@ const Info = () => {
     const navigate = useNavigate();
 
     const [user] = useState(GetStoredUser);
-    const [btnPage, setBtnPage] = useState(3);
+    const [btnPage, setBtnPage] = useState(4);
 
     const Page = () => {
       switch (btnPage) {
           case 1: return <AccountBoxs />
           case 2: return <User />
           case 3: return <Password />
+          case 4: return <Member />
       }
     };
 
@@ -91,7 +93,7 @@ const Info = () => {
                     </div>
                 </div>
 
-                <div className="right-page">
+                <div className={btnPage === 1 ? ("") : ("right-page")}>
                     {Page()}
                 </div>
             </div>
