@@ -48,8 +48,9 @@ const Home = () => {
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const result = await axios.get(`${API}/products`);
-               setProducts(result.data);
+                const res = await fetch(`${API}/products`);
+                const data = await res.json();
+                setProducts(data);
             } catch (e) {
                 console.log("Load Products: ", e);
             }

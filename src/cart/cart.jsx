@@ -2,15 +2,17 @@ import React, {useEffect, useState} from 'react';
 import './cart.css';
 import axios from "axios";
 
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { MdLocalShipping } from "react-icons/md";
-import {API_URL, QUANTITY_CART} from "../service/API_URL.jsx";
+import {API_URL, INFO_USER, QUANTITY_CART} from "../service/API_URL.jsx";
 import {GetStoredUser} from "../service/GetStoredUser.jsx";
 
 const Cart = () => {
     const [user] = useState(GetStoredUser);
     const [carts, setCarts] = useState([]);
     const [selectedItems, setSelectedItems] = useState([]);
+
+    const navigate = useNavigate();
 
     // Load List Carts
     const loadCarts = async () => {
@@ -24,14 +26,16 @@ const Cart = () => {
 
     useEffect(() => {
         loadCarts();
-    }, []);
+    });
 
     // Selected Item
-    const toggleSelectItem = (id) => {
-        if (selectedItems.includes(id)) {
-            setSelectedItems(selectedItems.filter(itemId => itemId !== id));
+    const toggleSelectItem = (item) => {
+        const isExisted = selectedItems.some(selected => selected.id === item.id);
+
+        if (isExisted) {
+            setSelectedItems(selectedItems.filter(selected => selected.id !== item.id)); // Co Roi Thi Loai Bo
         } else {
-            setSelectedItems([...selectedItems, id]);
+            setSelectedItems([...selectedItems, item]); // Chua Thi Them Vao
         }
     };
 
@@ -42,16 +46,17 @@ const Cart = () => {
 
         selectedItems.forEach(itemSelected => {
             carts.forEach(itemCart => {
-                if (itemSelected === itemCart.id) {
+                if (itemSelected.id === itemCart.id) {
                     total += itemCart.price * itemCart.quantity;
-                    stringCur = itemCart.currency;
                 }
+                stringCur = itemCart.currency;
             })
-        })
+        });
 
         return total.toLocaleString() + " " + stringCur;
     };
 
+    // Update Quantity Cart
     useEffect(() => {
         if (carts && carts.length > 0) {
             let quantity = carts.length;
@@ -106,6 +111,12 @@ const Cart = () => {
         return Math.trunc(percentage);
     }
 
+    // Click Check Out
+    const clickCheckOut = () => {
+      if (selectedItems && selectedItems.length === 0) alert("Vui lòng chọn sản phẩm để tiến hành đặt hàng!");
+      else navigate("/cart/checkout", {state: {products: selectedItems}});
+    };
+
     return (
         <div id="cart">
             <div className="container">
@@ -116,35 +127,35 @@ const Cart = () => {
                             <div className="container-left">
                                 {
                                     carts.map((item) => (
-                                            <div className="list-cart">
-                                                <input
-                                                    type="checkbox"
-                                                    checked={selectedItems.includes(item.id)}
-                                                    onChange={() => toggleSelectItem(item.id)}
-                                                />
+                                        <div className="list-cart">
+                                            <input
+                                                type="checkbox"
+                                                checked={selectedItems.some(selected => selected.id === item.id)}
+                                                onChange={() => toggleSelectItem(item)}
+                                            />
 
-                                                <img src={`${API_URL}${item.image}`} alt="" className="item-img"/>
+                                            <img src={`${API_URL}${item.image}`} alt="" className="item-img"/>
 
-                                                <div className="item-cart">
-                                                    <div className="item-left">
-                                                        <div className="name" title="222">{item.name}</div>
-                                                        <div className="type">Mực {item.color}</div>
-                                                    </div>
-
-                                                    <div className="item-middle">
-                                                        <div className="price-dis">{item.price.toLocaleString()} {item.currency}</div>
-                                                        <div className="price-noDis">{item.originalPrice.toLocaleString()} {item.currency}</div>
-                                                        <div className="price-percent">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
-                                                    </div>
-
-                                                    <div className="item-right">
-                                                        <button onClick={() => updateQuantity(-1, item.id, item.quantity)} className="btn">-</button>
-                                                        <div className="quantity">{item.quantity}</div>
-                                                        <button onClick={() => updateQuantity(+1, item.id, item.quantity)} className="btn" style={{borderRadius: "0 4px 4px 0"}}>+</button>
-                                                    </div>
-
-                                                    <button onClick={() => removeProduct(item.id)} className="btn-remove" title="Xoá">X</button>
+                                            <div className="item-cart">
+                                                <div className="item-left">
+                                                    <div className="name" title="222">{item.name}</div>
+                                                    <div className="type">Mực {item.color}</div>
                                                 </div>
+
+                                                <div className="item-middle">
+                                                    <div className="price-dis">{item.price.toLocaleString()} {item.currency}</div>
+                                                    <div className="price-noDis">{item.originalPrice.toLocaleString()} {item.currency}</div>
+                                                    <div className="price-percent">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
+                                                </div>
+
+                                                <div className="item-right">
+                                                    <button onClick={() => updateQuantity(-1, item.id, item.quantity)} className="btn">-</button>
+                                                    <div className="quantity">{item.quantity}</div>
+                                                    <button onClick={() => updateQuantity(+1, item.id, item.quantity)} className="btn" style={{borderRadius: "0 4px 4px 0"}}>+</button>
+                                                </div>
+
+                                                <button onClick={() => removeProduct(item.id)} className="btn-remove" title="Xoá">X</button>
+                                            </div>
                                         </div>
                                     ))
                                 }
@@ -158,7 +169,7 @@ const Cart = () => {
                                 <div className="note">
                                     <div className="title-note">Ghi chú đơn hàng <span>(Không hỗ trợ đổi hàng và màu sắc liên quan đơn hàng sản phẩm giao ngẫu nhiên)</span></div>
                                     <textarea className="input-note" rows="8"></textarea>
-                                    <button className="btn-cart" title="Tiến hành đặt hàng">Tiến hành đặt hàng</button>
+                                    <button onClick={clickCheckOut} className="btn-cart" title="Tiến hành đặt hàng">Tiến hành đặt hàng</button>
                                 </div>
                             </div>
                             <div className="free-ship"><i><MdLocalShipping /></i>Miễn phí vận chuyển cho đơn hàng từ 100,000₫</div>

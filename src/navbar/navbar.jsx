@@ -30,8 +30,9 @@ const Navbar = () => {
         // Load Data Categories
         const loadCates = async () => {
             try {
-                const result = await  axios.get(`${API}/categories`);
-                setCates(result.data);
+                const res = await fetch(`${API}/categories`);
+                const data = await res.json();
+                setCates(data);
             } catch (e) {
                 console.log("Load Categories: ", e);
             }
@@ -52,6 +53,7 @@ const Navbar = () => {
     const logout = () => {
       localStorage.removeItem(KEY_LOGGED);
       localStorage.removeItem(INFO_USER);
+      localStorage.removeItem(QUANTITY_CART);
       navigate("/");
       window.location.reload();
     };
@@ -139,7 +141,7 @@ const Navbar = () => {
                         <li className="item-contact-user">
                             <div onClick={clickCart} className="cart flex-center" title="Giỏ hàng">
                                 <BsFillBagFill />
-                                <div className="count flex-center">{localStorage.getItem(QUANTITY_CART)}</div>
+                                <div className="count flex-center">{localStorage.getItem(QUANTITY_CART) || 0}</div>
                             </div>
                         </li>
                     </ul>

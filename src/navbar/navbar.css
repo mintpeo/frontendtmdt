@@ -13,17 +13,18 @@
   align-items: center;
 }
 #navbar .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   margin: 0 3rem;
-  padding: 0.9rem 0;
+  padding: 0.9rem 1rem;
 }
 #navbar .header .logo {
   display: flex;
+  width: 100%;
 }
 #navbar .header .logo img {
   position: relative;
-  width: auto;
   height: 3.5rem;
 }
 #navbar .header .logo .icon-xmas2 {

@@ -1,6 +1,7 @@
 import React from 'react';
 import './accountBoxs.css'
-import faceIcon from "../../../../assets/face1.gif";
+
+import faceIcon from "/src/assets/face1.gif";
 
 const AccountBoxs = () => {
     return (
