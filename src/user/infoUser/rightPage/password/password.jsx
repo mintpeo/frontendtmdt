@@ -39,7 +39,8 @@ const Password = () => {
     }, [newPassword, newAgainPassword]);
 
     // UPDATE PASSWORD
-    const updatePassword = async () => {
+    const updatePassword = async (e) => {
+        e.preventDefault();
         // Check Password
         const isOldPassCorrect = await verifyPassword();
         if (!isOldPassCorrect) {
@@ -55,13 +56,14 @@ const Password = () => {
         try {
             const res = await fetch(`${API}/users/${user.id}`, {
                 method: "PATCH",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(changePassword),
             });
 
-            if (res.ok) alert("Đổi mật khẩu thành công!");
+            if (res.ok) {
+                alert("Đổi mật khẩu thành công!");
+                window.location.reload();
+            }
 
         } catch (e) {
             console.log("ERROR UPDATE_PASSWORD ", e);

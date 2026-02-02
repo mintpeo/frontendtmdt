@@ -4,8 +4,6 @@ import {GetStoredUser} from "../../../../service/GetStoredUser.jsx";
 import {API_URL, INFO_USER} from "../../../../service/API_URL.jsx";
 
 const User = () => {
-    const INFOUSER = INFO_USER;
-
     const [user, setUser] = useState(GetStoredUser);
     const setLastName = (e) => {setUser({...user, lastName: e.target.value})};
     const setFirstName = (e) => {setUser({...user, firstName: e.target.value})};
@@ -32,8 +30,9 @@ const User = () => {
 
             if (res.ok) {
                 const newUserInfo = await res.json();
-                localStorage.setItem(INFOUSER, JSON.stringify(newUserInfo));
+                localStorage.setItem(INFO_USER, JSON.stringify(newUserInfo));
                 alert("Cập nhật thông tin thành công!");
+                window.location.reload();
             } else alert("Cập nhật thất bại!");
 
         } catch (e) {
