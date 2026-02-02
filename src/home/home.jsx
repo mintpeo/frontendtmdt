@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './home.css'
 import {API_URL} from "../service/API_URL.jsx";
-import axios from "axios";
 
 import {Swiper, SwiperSlide} from "swiper/react";
 import { Autoplay, Navigation, EffectFade } from "swiper/modules";
@@ -41,14 +40,12 @@ import { IoIosStarOutline } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
 
 const Home = () => {
-    const API = API_URL;
-
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const res = await fetch(`${API}/products`);
+                const res = await fetch(`${API_URL}/products`);
                 const data = await res.json();
                 setProducts(data);
             } catch (e) {
@@ -129,7 +126,7 @@ const Home = () => {
                                 products.slice(0, 5).map((item) => (
                                     <div className="container-product">
                                         <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
-                                        <div className="img"><a href="#" title={item.name}><img src={`${API}${item.images[0]}`} alt=""/></a></div>
+                                        <div className="img"><a href="#" title={item.name}><img src={`${API_URL}${item.images[0]}`} alt=""/></a></div>
                                         <div className="price">
                                             <p className="price-dis">{item.price} {item.currency}</p>
                                             <p className="price-noDis">{item.originalPrice} {item.currency}</p>
@@ -213,7 +210,7 @@ const Home = () => {
                         {
                             products.slice(0, 5).map((item) => (
                             <div className="item">
-                                <div className="item-img"><img src={`${API}${item.images[0]}`} alt="item-img"/></div>
+                                <div className="item-img"><img src={`${API_URL}${item.images[0]}`} alt="item-img"/></div>
                                 <div className="item-stock">
                                     <div className="icon"><AiOutlineStock />Số lượng: {item.stock}</div>
                                 </div>

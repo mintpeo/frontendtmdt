@@ -460,12 +460,58 @@
       "role": "admin"
     },
     {
-      "id": "5766",
+      "id": "2",
       "email": "minh@gmail.com",
       "password": "123",
-      "lastName": "minh",
+      "lastName": "minh222",
       "firstName": "tran",
       "phone": "1232222222222",
+      "role": "user",
+      "dateOfBirth": "2026-02-19",
+      "address": "123"
+    },
+    {
+      "id": "7d7c",
+      "email": "minh1@gmail.com",
+      "password": "123",
+      "lastName": "minh123",
+      "firstName": "tran",
+      "phone": "1123",
+      "dateOfBirth": "2026-01-01",
+      "address": "123",
+      "role": "user"
+    },
+    {
+      "id": "9110",
+      "email": "minh23@gmail.com",
+      "password": "1",
+      "lastName": "khai123",
+      "firstName": "pham123",
+      "phone": "1232222",
+      "dateOfBirth": "2026-01-22",
+      "address": "12333311",
+      "role": "user"
+    },
+    {
+      "id": "6df4",
+      "email": "123@gmail.com",
+      "password": "1",
+      "lastName": "minhminh",
+      "firstName": "123",
+      "phone": "123",
+      "dateOfBirth": "2026-01-16",
+      "address": "123",
+      "role": "user"
+    },
+    {
+      "id": "ca1b",
+      "email": "minh3@gmail.com",
+      "password": "1",
+      "lastName": "minh123",
+      "firstName": "tran",
+      "phone": "123",
+      "dateOfBirth": "2026-01-16",
+      "address": "123",
       "role": "user"
     }
   ],
@@ -479,7 +525,7 @@
       "price": 4500,
       "originalPrice": 5000,
       "currency": "VND",
-      "quantity": 3,
+      "quantity": 1,
       "image": "/images/TL027.jpg"
     },
     {
@@ -491,8 +537,32 @@
       "price": 4500,
       "originalPrice": 5000,
       "currency": "VND",
-      "quantity": 3,
+      "quantity": 6,
       "image": "/images/TL027.jpg"
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "productId": "4",
+      "name": "Bút lông bảng Thiên Long WB-03",
+      "color": "Xanh",
+      "price": 9000,
+      "originalPrice": 10000,
+      "currency": "VND",
+      "quantity": 1,
+      "image": "/images/WB03-Xanh.jpg"
+    },
+    {
+      "id": "4",
+      "userId": "2",
+      "productId": "3",
+      "name": "Bút dạ quang FlexOffice FO-HL05",
+      "color": "Vàng",
+      "price": 8000,
+      "originalPrice": 9000,
+      "currency": "VND",
+      "quantity": 1,
+      "image": "/images/FOHL05-Vang.jpg"
     }
   ]
 }
