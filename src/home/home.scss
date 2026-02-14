@@ -12,6 +12,7 @@
       .swiper-slide {
         transition: all 0.4s ease;
         transform: scale(0.85);
+        transform: scaleY(.85);
 
         &-active {
           transform: scale(1);
@@ -28,14 +29,13 @@
         width: auto;
         height: auto;
         text-align: center;
-        padding: 10px 0;
       }
 
       .banner-slider-img {
         img {
           position: relative;
-          width: auto;
-          height: 350px;
+          width: 100%;
+          height: auto;
           object-fit: cover;
           overflow: hidden;
           border-radius: 1rem;
@@ -59,19 +59,20 @@
 
       .product-docQuyen {
         @include margin-main;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
         background: url("src/assets/titleTL-1.png") #5d8afc;
         padding: 3rem;
         border-radius: 2rem;
 
         .container-product {
-          max-width: 250px;
+          width: 100%;
           background: #e6eeff;
           border-style: solid;
           border-color: #fff;
           border-radius: 1rem;
+          min-width: 0;
 
           .name {
             padding: .5rem;
@@ -93,7 +94,7 @@
             align-items: center;
 
             img {
-              height: 250px;
+              width: 100%;
               border-style: solid;
               border-color: #fff;
             }
@@ -152,30 +153,32 @@
     .info {
       @include margin-main;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
       padding: 2rem;
       background: #fff;
 
-      .item-sale {
-        margin-left: 1.5rem;
+      .container-sale {
+        min-width: 0;
+        .item-sale {
+          width: 100%;
+          a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
 
-        a {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-decoration: none;
+            img {
+              width: 4rem;
+              height: auto;
+            }
 
-          img {
-            width: 4rem;
-            height: auto;
-          }
-
-          p {
-            margin-top: 1rem;
-            text-align: center;
-            color: #000;
-            white-space: nowrap;
+            p {
+              margin-top: 1rem;
+              text-align: center;
+              color: #000;
+              white-space: nowrap;
+            }
           }
         }
       }
@@ -201,7 +204,7 @@
           border-radius: 1rem;
           background: #fffdf9;
           border: 1px solid #fc9b03;
-          max-width: 16.5rem;
+          width: 18%;
 
           .item-img {
             cursor: pointer;

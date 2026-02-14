@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './home.css'
 import {API_URL} from "../service/API_URL.jsx";
 
@@ -9,28 +9,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-import banner1 from '../assets/banner1.webp'
-import banner2 from '../assets/banner2.jpg'
-import banner3 from '../assets/banner3.webp'
-import banner4 from '../assets/banner4.webp'
-import banner5 from '../assets/banner5.jpg'
-import banner6 from '../assets/banner6.jpg'
-import banner7 from '../assets/banner7.webp'
-import banner8 from '../assets/banner8.webp'
-import banner9 from '../assets/banner9.webp'
-import banner10 from '../assets/banner10.webp'
-import banner11 from '../assets/banner11.jpg'
-import banner12 from '../assets/banner12.webp'
 import titleTL from  '../assets/titleTL.webp'
 import btnBuy from '../assets/btn-buy.png'
-import gifTopSale from '../assets/gif-topsale.gif'
-import gifCamNang from '../assets/gif-camnang.gif'
-import gifInAn from '../assets/gif-inan.gif'
-import gifKokomi from '../assets/gif-kokomi.gif'
-import gifKokomi2 from '../assets/gif-kokomi2.gif'
-import gifBalo from '../assets/gif-balo.gif'
-import gifTracking from '../assets/gif-tracking.gif'
-import gifVpp from '../assets/gif-vpp.gif'
 import flashSale from '../assets/flashsale.webp'
 
 import { AiOutlineStock } from "react-icons/ai";
@@ -38,22 +18,12 @@ import { IoIosStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
 import { IoIosStarOutline } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
+import useFetch from "../hooks/useFetch.js";
 
 const Home = () => {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        const loadProducts = async () => {
-            try {
-                const res = await fetch(`${API_URL}/products`);
-                const data = await res.json();
-                setProducts(data);
-            } catch (e) {
-                console.log("Load Products: ", e);
-            }
-        }
-        loadProducts();
-    }, []);
+    const {data: products} = useFetch(`${API_URL}/products`);
+    const {data: infoSales} = useFetch(`${API_URL}/infoSale`);
+    const {data: banners} = useFetch(`${API_URL}/banner`);
 
     //  Calculate Dis %
     const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
@@ -89,28 +59,21 @@ const Home = () => {
                 <div className="banner-home">
                     <Swiper
                         modules={[Autoplay, Navigation, EffectFade]}
-                        slidesPerView={2.5}
+                        slidesPerView={2}
                         centeredSlides={true}
                         autoplay={{
-                            delay: 3000,
+                            delay: 10000,
                             disableOnInteraction: false,
                             pauseOnMouseEnter: true
                         }}
                         loop={true}
                         className="banner-slider"
                     >
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Viết điều kỳ diệu cho mùa Giáng Sinh"><img src={banner1} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Bút viết cao cấp"><img src={banner2} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Giảm đến 50%"><img src={banner3} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Săn Deal Thiên Long"><img src={banner4} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Giấy in cao cấp"><img src={banner5} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Bút viết an lành"><img src={banner6} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Săn FLEXIO"><img src={banner7} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Sách hay khai trí thức"><img src={banner8} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Xả kho giá cực khét"><img src={banner9} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Viết điều kỳ diệu cho mùa Giáng Sinh"><img src={banner10} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Bút viết cao cấp"><img src={banner11} alt="banner" /></a></SwiperSlide>
-                        <SwiperSlide><a className="banner-slider-img" href="#" title="Giảm đến 50%"><img src={banner12} alt="banner" /></a></SwiperSlide>
+                        {
+                            banners.map((item) => (
+                                <SwiperSlide><a className="banner-slider-img" href="#" title={item.name}><img src={`${API_URL}${item.image}`} alt="banner" /></a></SwiperSlide>
+                            ))
+                        }
                     </Swiper>
                 </div>
 
@@ -146,61 +109,16 @@ const Home = () => {
 
                 {/*  Info  */}
                 <div className="info">
-                    <div className="item-sale">
-                        <a href="#" title="Top sale">
-                            <img src={gifTopSale} alt="top-sale"/>
-                            <p>Top sale</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Văn phòng phẩm">
-                            <img src={gifVpp} alt="Vpp"/>
-                            <p>Văn phòng phẩm</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Giải pháp in ấn">
-                            <img src={gifInAn} alt="inan"/>
-                            <p>Giải pháp in ấn</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Sản phẩm mới">
-                            <img src={gifBalo} alt="Balo"/>
-                            <p>Sản phẩm mới</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Cẩm nang ưu đãi">
-                            <img src={gifCamNang} alt="CamNang"/>
-                            <p>Cẩm nang ưu đãi</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Thư viện Thiên Long">
-                            <img src={gifKokomi} alt="Kokomi"/>
-                            <p>Thư viện Thiên Long</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Thư viện Thiên Long">
-                            <img src={gifKokomi2} alt="Kokomi2"/>
-                            <p>Thư viện Thiên Long</p>
-                        </a>
-                    </div>
-
-                    <div className="item-sale">
-                        <a href="#" title="Kiểm tra đơn hàng">
-                            <img src={gifTracking} alt="Tracking"/>
-                            <p>Kiểm tra đơn hàng</p>
-                        </a>
-                    </div>
+                    {infoSales.map((item) => (
+                        <div className="container-sale">
+                            <div className="item-sale">
+                                <a href="#" title={item.name}>
+                                    <img src={`${API_URL}${item.image}`} alt={item.sku}/>
+                                    <p>{item.name}</p>
+                                </a>
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
                 {/*  Flash Sale  */}

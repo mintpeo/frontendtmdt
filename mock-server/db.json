@@ -447,6 +447,118 @@
       ]
     }
   ],
+  "banner": [
+    {
+      "id": "1",
+      "name": "Viết điều kỳ diệu cho mùa Giáng Sinh",
+      "image": "/imagesBanner/banner1.webp"
+    },
+    {
+      "id": "2",
+      "name": "Bút viết cao cấp",
+      "image": "/imagesBanner/banner2.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Giảm đến 50%",
+      "image": "/imagesBanner/banner3.webp"
+    },
+    {
+      "id": "4",
+      "name": "Săn Deal Thiên Long",
+      "image": "/imagesBanner/banner4.webp"
+    },
+    {
+      "id": "5",
+      "name": "Giấy in cao cấp",
+      "image": "/imagesBanner/banner5.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Bút viết an lành",
+      "image": "/imagesBanner/banner6.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Săn FLEXIO",
+      "image": "/imagesBanner/banner7.webp"
+    },
+    {
+      "id": "8",
+      "name": "Sách hay khai trí thức",
+      "image": "/imagesBanner/banner8.webp"
+    },
+    {
+      "id": "9",
+      "name": "Xả kho giá cực khét",
+      "image": "/imagesBanner/banner9.webp"
+    },
+    {
+      "id": "10",
+      "name": "Viết điều kỳ diệu cho mùa Giáng Sinh",
+      "image": "/imagesBanner/banner10.webp"
+    },
+    {
+      "id": "11",
+      "name": "Bút viết cao cấp",
+      "image": "/imagesBanner/banner11.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Giảm đến 50%",
+      "image": "/imagesBanner/banner12.webp"
+    }
+  ],
+  "infoSale": [
+    {
+      "id": "1",
+      "name": "Top sale",
+      "sku": "TS",
+      "image": "/imagesSale/gif-topsale.gif"
+    },
+    {
+      "id": "2",
+      "name": "Văn phòng phẩm",
+      "sku": "VPP",
+      "image": "/imagesSale/gif-vpp.gif"
+    },
+    {
+      "id": "3",
+      "name": "Giải pháp in ấn",
+      "sku": "INAN",
+      "image": "/imagesSale/gif-inan.gif"
+    },
+    {
+      "id": "4",
+      "name": "Sản phẩm mới",
+      "sku": "SPM",
+      "image": "/imagesSale/gif-balo.gif"
+    },
+    {
+      "id": "5",
+      "name": "Cẩm nang ưu đãi",
+      "sku": "CMUD",
+      "image": "/imagesSale/gif-camnang.gif"
+    },
+    {
+      "id": "6",
+      "name": "Thư viện Thiên Long",
+      "sku": "TVTL",
+      "image": "/imagesSale/gif-kokomi.gif"
+    },
+    {
+      "id": "7",
+      "name": "Trạm thư Namikokoro",
+      "sku": "TT",
+      "image": "/imagesSale/gif-kokomi2.gif"
+    },
+    {
+      "id": "8",
+      "name": "Kiểm tra đơn hàng",
+      "sku": "TTDH",
+      "image": "/imagesSale/gif-tracking.gif"
+    }
+  ],
   "users": [
     {
       "id": "1",
