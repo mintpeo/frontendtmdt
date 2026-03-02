@@ -152,7 +152,7 @@ const Navbar = () => {
                     {cates && cates.length > 0 ? (
                             cates.map((cate) => (
                                 <li key={cate.id} className="item-cate flex-center">
-                                    <div className="icon flex-center" style={position(cate.id)}><img src={`${API_URL}${cate.image}`} alt="icon-menu"/></div>
+                                    <div className="icon flex-center" style={position(cate.id)}><img src={cate.image} alt="icon-menu"/></div>
                                     <div className="name">{cate.name}</div>
                                     <div className="iconDown flex-center">{renderIconDown(cate.id)}</div>
 
@@ -172,7 +172,7 @@ const Navbar = () => {
                                                     </div>
 
                                                     <div className="content-right">
-                                                        <img src={`${API_URL}${getCateBannerById(cate.id)}`} alt=""/>
+                                                        <img src={getCateBannerById(cate.id)} alt=""/>
                                                     </div>
                                                 </div>
                                             </div>
