@@ -71,7 +71,7 @@ const Home = () => {
                     >
                         {
                             banners.map((item) => (
-                                <SwiperSlide><a className="banner-slider-img" href="#" title={item.name}><img src={`${API_URL}${item.image}`} alt="banner" /></a></SwiperSlide>
+                                <SwiperSlide><a className="banner-slider-img" href="#" title={item.name}><img src={item.image} alt="banner" /></a></SwiperSlide>
                             ))
                         }
                     </Swiper>
@@ -89,7 +89,7 @@ const Home = () => {
                                 products.slice(0, 5).map((item) => (
                                     <div className="container-product">
                                         <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
-                                        <div className="img"><a href="#" title={item.name}><img src={`${API_URL}${item.images[0]}`} alt=""/></a></div>
+                                        <div className="img"><a href="#" title={item.name}><img src={item.images[0]} alt=""/></a></div>
                                         <div className="price">
                                             <p className="price-dis">{item.price} {item.currency}</p>
                                             <p className="price-noDis">{item.originalPrice} {item.currency}</p>
@@ -113,7 +113,7 @@ const Home = () => {
                         <div className="container-sale">
                             <div className="item-sale">
                                 <a href="#" title={item.name}>
-                                    <img src={`${API_URL}${item.image}`} alt={item.sku}/>
+                                    <img src={item.image} alt={item.sku}/>
                                     <p>{item.name}</p>
                                 </a>
                             </div>
@@ -128,7 +128,7 @@ const Home = () => {
                         {
                             products.slice(0, 5).map((item) => (
                             <div className="item">
-                                <div className="item-img"><img src={`${API_URL}${item.images[0]}`} alt="item-img"/></div>
+                                <div className="item-img"><img src={item.images[0]} alt="item-img"/></div>
                                 <div className="item-stock">
                                     <div className="icon"><AiOutlineStock />Số lượng: {item.stock}</div>
                                 </div>
