@@ -157,7 +157,7 @@ const Checkout = () => {
                         {products.map((item) => (
                             <li className="item-cart">
                                 <div className="item-container">
-                                    <img className="item-img" src={`${API_URL}${item.image}`} alt=""/>
+                                    <img className="item-img" src={item.image} alt=""/>
 
                                     <div className="item-info">
                                         <div className="name">{item.name}</div>

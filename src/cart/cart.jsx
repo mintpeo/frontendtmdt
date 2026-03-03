@@ -4,7 +4,7 @@ import axios from "axios";
 
 import {Link, useNavigate} from "react-router-dom";
 import { MdLocalShipping } from "react-icons/md";
-import {API_URL, INFO_USER, QUANTITY_CART} from "../service/API_URL.jsx";
+import {API_URL, QUANTITY_CART} from "../service/API_URL.jsx";
 import {GetStoredUser} from "../service/GetStoredUser.jsx";
 
 const Cart = () => {
@@ -134,7 +134,7 @@ const Cart = () => {
                                                 onChange={() => toggleSelectItem(item)}
                                             />
 
-                                            <img src={`${API_URL}${item.image}`} alt="" className="item-img"/>
+                                            <img src={item.image} alt="" className="item-img"/>
 
                                             <div className="item-cart">
                                                 <div className="item-left">
