@@ -19,11 +19,18 @@ import { IoIosStarHalf } from "react-icons/io";
 import { IoIosStarOutline } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
 import useFetch from "../hooks/useFetch.js";
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
     const {data: products} = useFetch(`${API_URL}/products`);
     const {data: infoSales} = useFetch(`${API_URL}/infoSale`);
     const {data: banners} = useFetch(`${API_URL}/banner`);
+
+    // Navigate to detail
+    const navigate = useNavigate();
+    const handleToDetail = (id) => {
+        navigate(`/detail/${id}`);
+    }
 
     //  Calculate Dis %
     const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
@@ -88,8 +95,8 @@ const Home = () => {
                             products && products.length > 0 ? (
                                 products.slice(0, 5).map((item) => (
                                     <div className="container-product">
-                                        <div className="name"><a href="#" title={item.name}>{item.name}</a></div>
-                                        <div className="img"><a href="#" title={item.name}><img src={item.images[0]} alt=""/></a></div>
+                                        <div className="name" onClick={() => handleToDetail(item.id)}><a title={item.name}>{item.name}</a></div>
+                                        <div className="img" onClick={() => handleToDetail(item.id)}><a title={item.name}><img src={item.images[0]} alt=""/></a></div>
                                         <div className="price">
                                             <p className="price-dis">{item.price} {item.currency}</p>
                                             <p className="price-noDis">{item.originalPrice} {item.currency}</p>
@@ -127,7 +134,7 @@ const Home = () => {
                     <div className="list-product">
                         {
                             products.slice(0, 5).map((item) => (
-                            <div className="item">
+                            <div className="item" onClick={() => handleToDetail(item.id)}>
                                 <div className="item-img"><img src={item.images[0]} alt="item-img"/></div>
                                 <div className="item-stock">
                                     <div className="icon"><AiOutlineStock />Số lượng: {item.stock}</div>
