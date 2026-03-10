@@ -1,14 +1,14 @@
 #detail {
-  padding: 1rem 4.5rem;
+  padding: 1rem 4rem;
   justify-content: center;
 
   .container {
     display: flex;
+    justify-content: space-between;
     border: solid 1px rgba(0,0,0,.125);
     border-radius: 1rem;
     box-shadow: 0 0 8px 2px rgba(179, 179, 179, 0.15);
     padding: 1rem;
-    justify-content: space-between;
 
     .img-dt {
       max-width: 30%;
@@ -20,17 +20,13 @@
       }
 
       .img-sub {
+        cursor: pointer;
+
         .swiper-slide {
           transition: all 0.4s ease;
 
           &.active {
-            border-color: #2659f3; /* Màu viền xanh */
-
-            /* Đẩy ảnh lên trên 8px và phóng to thêm 5% */
-            transform: translateY(-8px) scale(1.05);
-
-            /* Thêm chút bóng đổ để có cảm giác nó đè lên mặt phẳng */
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            border-color: #2659f3;
           }
         }
 
@@ -52,7 +48,8 @@
     }
 
     .info-dt {
-      width: 50%;
+      width: 60%;
+      margin: 0 1.5rem;
 
       .text-main {
         font-size: 2rem;
@@ -207,19 +204,19 @@
 
     .voucher-dt {
       background-color: #dbe8ff;
-      padding: 1rem;
+      padding: .5rem;
       border-radius: 1rem;
       height: auto;
+      width: auto;
 
       .list-vou {
         .item-vou {
           display: flex;
           align-items: center;
           background-color: #fff;
-          gap: 1rem;
           margin-bottom: 1rem;
           border-radius: 1rem;
-          padding: .5rem 1rem;
+          padding: .5rem .5rem;
 
           .vou-left {
             display: flex;
@@ -240,14 +237,63 @@
           }
 
           .vou-right {
-            .text-vou {
-              font-size: .8rem;
-              line-height: 1.2rem;
+            width: 100%;
+            white-space: nowrap;
+            text-align: left;
+            border-left: 2px dashed #2659f3;
+            padding-left: 1rem;
+            margin-left: 1rem;
+            position: relative;
+
+            &:before {
+              content: "";
+              position: absolute;
+              width: 20px;
+              height: 10px;
+              border: 1px solid #dbe8ff;
+              top: -11%;
+              left: -7.5%;
+              border-bottom-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              background-color: #dbe8ff;
             }
 
-            .btn-copy {
-              display: block;
-              text-align: center;
+            &:after {
+              content: "";
+              position: absolute;
+              width: 20px;
+              height: 10px;
+              border: 1px solid #dbe8ff;
+              bottom: -12%;
+              left: -7.5%;
+              border-top-right-radius: 25px;
+              border-top-left-radius: 25px;
+              background-color: #dbe8ff;
+            }
+
+            .vou-info {
+              position: relative;
+
+              .text-vou {
+                font-size: 80%;
+                line-height: 1.2rem;
+              }
+            }
+
+            .btn-vou {
+              position: absolute;
+              bottom: 3%;
+              right: 0;
+
+              .btn-copy {
+                padding: .2rem .3rem;
+                font-size: 50%;
+                border-radius: 1rem;
+                background-color: #2659f3;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+              }
             }
           }
         }
