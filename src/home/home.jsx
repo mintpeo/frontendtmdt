@@ -98,8 +98,8 @@ const Home = () => {
                                         <div className="name" onClick={() => handleToDetail(item.id)}><a title={item.name}>{item.name}</a></div>
                                         <div className="img" onClick={() => handleToDetail(item.id)}><a title={item.name}><img src={item.images[0]} alt=""/></a></div>
                                         <div className="price">
-                                            <p className="price-dis">{item.price} {item.currency}</p>
-                                            <p className="price-noDis">{item.originalPrice} {item.currency}</p>
+                                            <p className="price-dis">{item.price.toLocaleString()} {item.currency}</p>
+                                            <p className="price-noDis">{item.originalPrice.toLocaleString()} {item.currency}</p>
                                             <div className="dis-per">-{calculateDiscountPercentage(item.originalPrice, item.price)}%</div>
                                         </div>
                                         <div className="buy">

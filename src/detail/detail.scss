@@ -7,8 +7,8 @@
     border: solid 1px rgba(0,0,0,.125);
     border-radius: 1rem;
     box-shadow: 0 0 8px 2px rgba(179, 179, 179, 0.15);
-    gap: 1rem;
     padding: 1rem;
+    justify-content: space-between;
 
     .img-dt {
       max-width: 30%;
@@ -35,26 +35,31 @@
         }
 
         .img-list {
-          img {
+          .img-item {
             width: 100%;
             height: auto;
             object-fit: cover;
             overflow: hidden;
             border-radius: 10px;
             border: 4px solid #eee;
+
+            &.active {
+              border-color: #2659f3;
+            }
           }
         }
       }
     }
 
     .info-dt {
+      width: 50%;
 
       .text-main {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .text-sub {
-        display: flex;
+        margin-top: .3rem;
 
         .text-left:after {
           margin: 0 1rem;
@@ -70,7 +75,6 @@
       .text-left {
         margin-top: .5rem;
         font-size: 90%;
-        white-space: nowrap;
 
         span {
           color: #2659f3;
@@ -202,7 +206,52 @@
     }
 
     .voucher-dt {
-      //max-width: 30%;
+      background-color: #dbe8ff;
+      padding: 1rem;
+      border-radius: 1rem;
+      height: auto;
+
+      .list-vou {
+        .item-vou {
+          display: flex;
+          align-items: center;
+          background-color: #fff;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 1rem;
+          padding: .5rem 1rem;
+
+          .vou-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            background-color: #2659f3;
+            border-radius: 50%;
+
+            .icon {
+              display: flex;
+              font-size: 32px;
+              transform: scaleX(-1);
+              color: #fff;
+            }
+          }
+
+          .vou-right {
+            .text-vou {
+              font-size: .8rem;
+              line-height: 1.2rem;
+            }
+
+            .btn-copy {
+              display: block;
+              text-align: center;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -43,7 +43,7 @@
   border-radius: 2rem;
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
   background: url("src/assets/titleTL-1.png") #5d8afc;
   padding: 3rem;
   border-radius: 2rem;
@@ -66,8 +66,12 @@
   border-top-right-radius: 1rem;
 }
 #home .container .docQuyen .product-docQuyen .container-product .name a {
+  display: inline-block;
   color: #fff;
   text-decoration: none;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #home .container .docQuyen .product-docQuyen .container-product .img {
   cursor: pointer;
@@ -85,11 +89,12 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  white-space: nowrap;
 }
 #home .container .docQuyen .product-docQuyen .container-product .price .price-dis {
   color: #2659f3;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-right: 0.5rem;
 }
 #home .container .docQuyen .product-docQuyen .container-product .price .price-noDis {
