@@ -18,9 +18,6 @@
   height: auto;
   width: 100%;
 }
-#detail .container .img-dt .img-sub {
-  cursor: pointer;
-}
 #detail .container .img-dt .img-sub .swiper-slide {
   transition: all 0.4s ease;
 }
@@ -34,6 +31,7 @@
   overflow: hidden;
   border-radius: 10px;
   border: 4px solid #eee;
+  cursor: pointer;
 }
 #detail .container .img-dt .img-sub .img-list .img-item.active {
   border-color: #2659f3;
@@ -104,6 +102,21 @@
   font-weight: 500;
   padding-bottom: 1rem;
   border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+#detail .container .info-dt .type .type-color {
+  margin-left: 1rem;
+  width: 30px;
+  height: 30px;
+  background-color: #2659f3;
+  display: inline-block;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#detail .container .info-dt .type .type-color.active {
+  border-color: #2659f3;
 }
 #detail .container .info-dt .amount {
   padding: 1rem 0;
@@ -182,6 +195,10 @@
   margin-bottom: 1rem;
   border-radius: 1rem;
   padding: 0.5rem 0.5rem;
+  transition: all 0.4s;
+}
+#detail .container .voucher-dt .list-vou .item-vou:hover {
+  transform: scale(1.05);
 }
 #detail .container .voucher-dt .list-vou .item-vou .vou-left {
   display: flex;
@@ -196,7 +213,6 @@
 #detail .container .voucher-dt .list-vou .item-vou .vou-left .icon {
   display: flex;
   font-size: 32px;
-  transform: scaleX(-1);
   color: #fff;
 }
 #detail .container .voucher-dt .list-vou .item-vou .vou-right {

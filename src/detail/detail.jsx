@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './detail.css';
 
 import {useParams} from "react-router-dom";
@@ -8,27 +8,49 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation} from "swiper/modules";
 
 import { BsCart3 } from "react-icons/bs";
-import { PiTicketLight } from "react-icons/pi";
+import { HiTicket } from "react-icons/hi2";
 
 const Detail = () => {
-    // Quantity
-    const [quantity, setQuantity] = useState(1);
+    // Get id product from url
+    const {id} = useParams();
+    const {data: product, loading: loading} = useFetch(`${API_URL}/products/${id}`);
 
     // Save index img-main and img-sub
     const [activeIndex, setActiveIndex] = useState(0);
+    const [numTypeCol, setNumTypeCol] = useState(0);
 
-    // Get id from url
-    const {id} = useParams();
+    // Quantity
+    const [quantity, setQuantity] = useState(1);
 
-    const {data: product, loading: loading} = useFetch(`${API_URL}/products/${id}`);
+    // Copy Voucher
+    const [choose, setChoose] = useState(0);
 
-    // Wait to load data
-    if (loading) {
-        return (
-            <div className="loading">
-                <h1>Đang tải dữ liệu sản phẩm...</h1>
-            </div>
-        );
+    // Choose Type Col
+    const handleTypeCol = (imgColo) => {
+        const listImage = [...product.images];
+
+        for (let i = 1; i < listImage.length; i++) {
+            if (imgColo === listImage[i]) {
+                setActiveIndex(i);
+            }
+        }
+    }
+    // Active Type Col
+    const handleChooseType = (id) => {
+        if (numTypeCol === id) return true;
+    }
+
+    // Date voucher
+    const voucherList = [
+        {id: 1, name: "Giảm 50.000đ", des: "Đơn hàng từ 300.000đ", code: "0326SALE50", date: "31/03/2026"},
+        {id: 2, name: "Giảm 150.000đ", des: "Đơn hàng từ 1300.000đ", code: "0326SALE50", date: "31/03/2026"},
+        {id: 3, name: "Giảm 250.000đ", des: "Đơn hàng từ 2300.000đ", code: "0326SALE50", date: "31/03/2026"},
+        {id: 4, name: "Giảm 350.000đ", des: "Đơn hàng từ 3300.000đ", code: "0326SALE50", date: "31/03/2026"},
+    ]
+
+    // Choose Voucher
+    const handleChooseVoucher = (id) => {
+        if (choose === id) return true;
     }
 
     // Set quantity
@@ -37,6 +59,17 @@ const Detail = () => {
 
         if (sign === "-") setQuantity(quantity - 1);
         else setQuantity(quantity + 1);
+    }
+
+    console.log(product)
+
+    // Wait to load data
+    if (loading) {
+        return (
+            <div className="loading">
+                <h1>Đang tải dữ liệu sản phẩm...</h1>
+            </div>
+        );
     }
 
     return (
@@ -100,7 +133,14 @@ const Detail = () => {
                     </div>
 
                     {/* Type */}
-                    <div className="type">Phân loại: <span>Red</span></div>
+                    <div className="type">Phân loại:
+                        {product.colors.map((item, index) => (
+                            <div onClick={() => {
+                                handleTypeCol(item.image);
+                                setNumTypeCol(index);
+                            }} className={`type-color ${handleChooseType(index) ? 'active' : ''}`} style={{backgroundColor: item.code}}></div>
+                        ))}
+                    </div>
 
                     {/* Amount */}
                     <div className="amount">
@@ -121,78 +161,26 @@ const Detail = () => {
                 {/* COUPED */}
                 <div className="voucher-dt">
                     <ul className="list-vou">
-                        <li className="item-vou">
-                            <div className="vou-left">
-                                <i className="icon"><PiTicketLight /></i>
-                            </div>
+                        {voucherList.map((item) => (
+                            <li className="item-vou" key={item.id}>
+                                <div className="vou-left">
+                                    <i className="icon"><HiTicket /></i>
+                                </div>
 
-                            <div className="vou-right">
-                                <div className="vou-info">
-                                    <strong>Giảm 50.000đ</strong>
-                                    <p className="text-vou">Đơn hàng từ 300.000đ</p>
-                                    <p className="text-vou">Mã: <span><strong>0326SALE50</strong></span></p>
-                                    <p className="text-vou">31/03/2026</p>
+                                <div className="vou-right">
+                                    <div className="vou-info">
+                                        <strong>{item.name}</strong>
+                                        <p className="text-vou">{item.des}</p>
+                                        <p className="text-vou">Mã: <span><strong>{item.code}</strong></span></p>
+                                        <p className="text-vou">{item.date}</p>
 
-                                    <div className="btn-vou">
-                                        <button className="btn-copy">Sao chép mã</button>
+                                        <div className="btn-vou">
+                                            <button className="btn-copy" onClick={() => setChoose(item.id)}>{handleChooseVoucher(item.id) ? "Đã sao chép" : "Sao chép mã"}</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li className="item-vou">
-                            <div className="vou-left">
-                                <i className="icon"><PiTicketLight /></i>
-                            </div>
-
-                            <div className="vou-right">
-                                <div className="vou-info">
-                                    <strong>Giảm 150.000đ</strong>
-                                    <p className="text-vou">Đơn hàng từ 300.000đ</p>
-                                    <p className="text-vou">Mã: <span><strong>0326SALE50</strong></span></p>
-                                    <p className="text-vou">31/03/2026</p>
-
-                                    <div className="btn-vou">
-                                        <button className="btn-copy">Sao chép mã</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="item-vou">
-                            <div className="vou-left">
-                                <i className="icon"><PiTicketLight /></i>
-                            </div>
-
-                            <div className="vou-right">
-                                <div className="vou-info">
-                                    <strong>Giảm 50.000đ</strong>
-                                    <p className="text-vou">Đơn hàng từ 300.000đ</p>
-                                    <p className="text-vou">Mã: <span><strong>0326SALE50</strong></span></p>
-                                    <p className="text-vou">31/03/2026</p>
-
-                                    <div className="btn-vou">
-                                        <button className="btn-copy">Sao chép mã</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="item-vou">
-                            <div className="vou-left">
-                                <i className="icon"><PiTicketLight /></i>
-                            </div>
-
-                            <div className="vou-right">
-                                <div className="vou-info">
-                                    <strong>Giảm 50.000đ</strong>
-                                    <p className="text-vou">Đơn hàng từ 300.000đ</p>
-                                    <p className="text-vou">Mã: <span><strong>0326SALE50</strong></span></p>
-                                    <p className="text-vou">31/03/2026</p>
-
-                                    <div className="btn-vou">
-                                        <button className="btn-copy">Sao chép mã</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
