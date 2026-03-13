@@ -133,6 +133,7 @@
   background-color: red;
 }
 #navbar .cate {
+  display: block;
   background-color: #fffadf;
   position: relative;
   z-index: 1;
@@ -210,6 +211,12 @@
   width: auto;
   height: 290px;
   cursor: auto;
+}
+
+@media (max-width: 768px) {
+  #navbar .cate {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=navbar.css.map */

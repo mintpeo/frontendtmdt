@@ -157,6 +157,7 @@
   }
 
   .cate {
+    display: block;
     background-color: #fffadf;
     position: relative;
     z-index: 1;
@@ -253,5 +254,15 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+  #navbar .cate {
+    display: none;
   }
 }
